@@ -1,8 +1,9 @@
 import React from 'react';
-import {Navbar, Container, Nav, NavDropdown, NavLink} from 'react-bootstrap';
+import {Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
 import logo from '../assets/logo4.png'
 import "bootstrap/js/src/collapse.js";
 import styles from '../styles/NavBar.module.css'
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
     return (
@@ -13,8 +14,8 @@ const NavBar = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto text-right">
                         <NavLink exact to="/"><i className="fas fa-home"></i>Home</NavLink>
-                        <NavLink exact to="/signin"><i className="fa-solid fa-right-to-bracket"></i>Sign in</NavLink>
-                        <NavLink exact to="/signup"><i className="fa-solid fa-user-plus"></i>Sign up</NavLink>
+                        <NavLink to="/signin"><i className="fa-solid fa-right-to-bracket"></i>Sign in</NavLink>
+                        <NavLink to="/signup"><i className="fa-solid fa-user-plus"></i>Sign up</NavLink>
                         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
