@@ -4,8 +4,16 @@ import logo from '../assets/logo4.png'
 import "bootstrap/js/src/collapse.js";
 import styles from '../styles/NavBar.module.css'
 import { NavLink } from "react-router-dom";
+import { useCurrentUser } from '../contexts/CurrentUserContext';
 
 const NavBar = () => {
+
+    const currentUser = useCurrentUser();
+    const loggedInIcons = <>{currentUser?.username}</>
+    const loggedOutIcons = 
+        <><NavLink to="/signin"><i className="fa-solid fa-right-to-bracket"></i>Sign in</NavLink>
+            <NavLink to="/signup"><i className="fa-solid fa-user-plus"></i>Sign up</NavLink></>
+
     return (
         <Navbar className={styles.NavBar} expand="md" fixed="top">
             <Container>
@@ -14,8 +22,7 @@ const NavBar = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto text-right">
                         <NavLink exact to="/"><i className="fas fa-home"></i>Home</NavLink>
-                        <NavLink to="/signin"><i className="fa-solid fa-right-to-bracket"></i>Sign in</NavLink>
-                        <NavLink to="/signup"><i className="fa-solid fa-user-plus"></i>Sign up</NavLink>
+                        {currentUser ? loggedInIcons : loggedOutIcons}
                         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
