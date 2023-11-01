@@ -33,10 +33,10 @@ const NavBar = () => {
 
     const loggedInIcons = 
         <>
-        <NavLink to="/posts/feed">
+        <NavLink to="/feed">
             <i className="fa-solid fa-stream"></i>Feed
         </NavLink>
-        <NavLink to="/posts/liked">
+        <NavLink to="/liked">
             <i className="fa-solid fa-heart"></i>Liked
         </NavLink>
         <NavLink to="/" onClick={handleSignOut}>
