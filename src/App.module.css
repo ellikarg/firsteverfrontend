@@ -6,3 +6,20 @@
 .Main {
     padding-top: 120px;
 }
+
+.Image {
+    max-height: 40vh;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.Content {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid #dadadf;
+}
