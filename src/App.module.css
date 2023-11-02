@@ -8,9 +8,9 @@
 }
 
 .Image {
-    max-height: 40vh;
+    max-height: 350px;
     max-width: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 input[type="file"] {

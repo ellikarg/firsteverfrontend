@@ -122,7 +122,7 @@ function PostCreateForm() {
                                 <>
                                     <figure>
                                         <Image
-                                            className={appStyles.Image}
+                                            // className={appStyles.Image}
                                             src={image} rounded />
                                     </figure>
                                     <div>

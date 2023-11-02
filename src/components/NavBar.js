@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, Container, Nav, NavDropdown} from 'react-bootstrap';
+import {Navbar, Container, Nav} from 'react-bootstrap';
 import logo from '../assets/logo4.png'
 import "bootstrap/js/src/collapse.js";
 import styles from '../styles/NavBar.module.css'
