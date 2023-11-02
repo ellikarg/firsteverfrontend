@@ -13,6 +13,8 @@ import Post from "./Post";
 import NoResults from "../../assets/no_results.PNG"
 import Asset from "../../components/Assets";
 import { Form } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { FetchMoreData } from "../../utils/utils";
 
 function PostsPage({message, filter=""}) {
   const [posts, setPosts] = useState({results: []});
@@ -60,9 +62,17 @@ function PostsPage({message, filter=""}) {
         {hasLoaded ? (
           <>
             {posts.results.length ? (
-              posts.results.map((post) => (
-                <Post key={post.id} {...post} setPosts={setPosts} />
-              ))
+              <InfiniteScroll
+                children={
+                  posts.results.map((post) => (
+                    <Post key={post.id} {...post} setPosts={setPosts} />
+                  ))
+                }
+                dataLength={posts.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!posts.next}
+                next={() => FetchMoreData(posts, setPosts)}
+                />
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
