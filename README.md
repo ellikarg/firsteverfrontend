@@ -147,3 +147,4 @@ When deployment is complete, you will be given a link to the deployed site.
 ### Code
 
 ### Media
+- Post of Besouro Preto de Mangangá: Text (https://papoeira.com/en/who-was-besouro-preto-de-manganga/), Image (https://br.freepik.com/vetores-gratis/mao-desenhada-de-besouro-preto-scutellated_3132785.htm)
