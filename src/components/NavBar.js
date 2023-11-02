@@ -26,33 +26,47 @@ const NavBar = () => {
     };
 
     const addPostIcon = (
-        <NavLink to="/posts/create">
+        <NavLink to="/posts/create"
+            className={styles.NavLink}
+            activeClassName={styles.Active} >
             <i className="fa-solid fa-plus-square"></i>Add Post
         </NavLink>
     )
 
     const loggedInIcons = 
         <>
-        <NavLink to="/feed">
+        <NavLink to="/feed"
+            className={styles.NavLink}
+            activeClassName={styles.Active} >
             <i className="fa-solid fa-stream"></i>Feed
         </NavLink>
-        <NavLink to="/liked">
+        <NavLink to="/liked"
+            className={styles.NavLink}
+            activeClassName={styles.Active} >
             <i className="fa-solid fa-heart"></i>Liked
         </NavLink>
-        <NavLink to="/" onClick={handleSignOut}>
+        <NavLink to="/" 
+            onClick={handleSignOut}
+            className={styles.NavLink} >
             <i className="fa-solid fa-sign-out-alt"></i>Sign out
         </NavLink>
-        <NavLink to={`/profiles/${currentUser?.profile_id}`}>
+        <NavLink to={`/profiles/${currentUser?.profile_id}`}
+            className={styles.NavLink}
+            activeClassName={styles.Active} >
             <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
         </NavLink>
         </>
 
     const loggedOutIcons = 
         <>
-            <NavLink to="/signin">
+            <NavLink to="/signin"
+                className={styles.NavLink}
+                activeClassName={styles.Active} >
                 <i className="fa-solid fa-right-to-bracket"></i>Sign in
             </NavLink>
-            <NavLink to="/signup">
+            <NavLink to="/signup"
+                className={styles.NavLink}
+                activeClassName={styles.Active} >
                 <i className="fa-solid fa-user-plus"></i>Sign up
             </NavLink>
         </>
@@ -72,7 +86,9 @@ const NavBar = () => {
                     aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto text-right">
-                        <NavLink exact to="/">
+                        <NavLink exact to="/"
+                            className={styles.NavLink}
+                            activeClassName={styles.Active} >
                             <i className="fas fa-home"></i>Home
                         </NavLink>
                         {currentUser ? loggedInIcons : loggedOutIcons}
