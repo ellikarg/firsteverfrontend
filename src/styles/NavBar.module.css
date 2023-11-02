@@ -4,8 +4,12 @@
 }
 
 .NavLink {
-    padding: 5px;
+    padding: 7px;
     color: grey;
+}
+
+.NavLink i {
+    padding: 3px;
 }
   
 .Active i {
