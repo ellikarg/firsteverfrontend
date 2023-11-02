@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -13,16 +12,19 @@ import Post from "./Post";
 
 import NoResults from "../../assets/no_results.PNG"
 import Asset from "../../components/Assets";
+import { Form } from "react-bootstrap";
 
 function PostsPage({message, filter=""}) {
   const [posts, setPosts] = useState({results: []});
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
 
+  const [query, setQuery] = useState("");
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const {data} = await axiosReq.get(`/posts/?${filter}`);
+        const {data} = await axiosReq.get(`/posts/?${filter}search=${query}`);
         setPosts(data);
         setHasLoaded(true);
       } catch(err) {
@@ -30,13 +32,31 @@ function PostsPage({message, filter=""}) {
       }
     };
     setHasLoaded(false);
-    fetchPosts();
-  }, [filter, pathname]);
+    const timer = setTimeout(() => {
+      fetchPosts();
+    }, 1000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [filter, query, pathname]);
   
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles mobile</p>
+        <i className={`fas fa-search ${styles.SearchIcon}`} />
+        <Form
+          className={styles.SearchBar}
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <Form.Control
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            type="text"
+            className="mr-sm-2"
+            placeholder="Search Posts" 
+          />
+        </Form>
         {hasLoaded ? (
           <>
             {posts.results.length ? (
