@@ -22,11 +22,12 @@ function PostCreateForm() {
 
     const [postData, setPostData] = useState({
         title: "",
+        description: "",
         content: "",
         image: "",
     })
 
-    const { title, content, image } = postData;
+    const { title, description, content, image } = postData;
 
     const imageInput = useRef(null);
 
@@ -54,6 +55,7 @@ function PostCreateForm() {
         const formData = new FormData();
 
         formData.append('title', title);
+        formData.append('description', description);
         formData.append('content', content);
         formData.append('image', imageInput.current.files[0]);
 
@@ -82,6 +84,21 @@ function PostCreateForm() {
                 </Form.Group>
 
                 {errors?.title?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>{message}</Alert>
+                ))}
+
+                <Form.Group>
+                    <Form.Label className="d-none">Short Description</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Enter a short description"
+                        name="description"
+                        value={description}
+                        onChange={handleChange}
+                    />
+                </Form.Group>
+
+                {errors?.description?.map((message, idx) => (
                     <Alert variant="warning" key={idx}>{message}</Alert>
                 ))}
 
