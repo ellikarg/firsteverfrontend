@@ -16,6 +16,10 @@ import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+// import parse from 'html-react-parser';
+
 function PostCreateForm() {
 
     const [errors, setErrors] = useState({});
@@ -37,6 +41,21 @@ function PostCreateForm() {
         setPostData({
             ...postData,
             [event.target.name]: event.target.value,
+        });
+    };
+
+    const modules = {
+        toolbar: [['bold', 'italic', 'underline', 'strike']],
+    };
+
+    const formats = [
+        'bold', 'italic', 'underline', 'strike',
+    ];
+
+    const handleQuillChange = (value) => {
+        setPostData({
+          ...postData,
+          content: value,
         });
     };
 
@@ -104,14 +123,22 @@ function PostCreateForm() {
 
                 <Form.Group>
                     <Form.Label className="d-none">Content</Form.Label>
-                    <Form.Control
+                        <ReactQuill
+                        theme="snow"
+                        value={postData.content}
+                        onChange={handleQuillChange}
+                        placeholder="Enter your content"
+                        modules={modules}
+                        formats={formats}
+                        />
+                    {/* <Form.Control
                         as="textarea"
                         placeholder="Enter your content"
                         name="content"
                         rows={6}
                         value={content}
-                        onChange={handleChange}
-                    />
+                        onChange={handleChange}>
+                    </Form.Control> */}
                 </Form.Group>
 
                 {errors?.content?.map((message, idx) => (
@@ -139,7 +166,7 @@ function PostCreateForm() {
                                 <>
                                     <figure>
                                         <Image
-                                            // className={appStyles.Image}
+                                            className={appStyles.Image}
                                             src={image} rounded />
                                     </figure>
                                     <div>
