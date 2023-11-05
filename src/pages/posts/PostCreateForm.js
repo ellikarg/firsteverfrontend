@@ -18,10 +18,11 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { useRedirect } from "../../hooks/useRedirect";
 // import parse from 'html-react-parser';
 
 function PostCreateForm() {
-
+    useRedirect('loggedOut');
     const [errors, setErrors] = useState({});
 
     const [postData, setPostData] = useState({
