@@ -23,15 +23,9 @@ Enough of talking, let's collect stories!
   * [Features](#features)
     + [CRUD functionality](#crud-functionality)
     + [Future improvements and features](#future-improvements-and-features)
-  * [Frameworks, libraries and dependencies](#frameworks--libraries-and-dependencies)
-    + [React-Calendar](#react-calendar)
-    + [React-Router-DOM](#react-router-dom)
-    + [ReactDOM](#reactdom)
-    + [Axios](#axios)
-    + [JWT Decode](#jwt-decode)
-    + [Tailwind CSS](#tailwind-css)
-    + [daisyUI](#daisyui)
-    + [React Bootstrap Icons](#react-bootstrap-icons)
+  * [Technologies Used](#technologies used)
+    + [Frameworks, libraries and dependencies](#frameworks--libraries-and-dependencies)
+    + [Other Technologies](#other-technologies)
   * [React features used to enhance user experience](#react-features-used-to-enhance-user-experience)
     + [Custom hooks](#custom-hooks)
   * [Testing](#testing)
@@ -125,35 +119,37 @@ The project board in its final form can be accessed at [Stories of the World Git
 
 ### Future improvements and features
 
-## Frameworks, libraries and dependencies
+<a name="technologies-used"></a>
+## Technologies Used
 
-### React-Calendar
-- [react-calendar](https://github.com/wojtekmaj/react-calendar) - this React library was used to implement the calendar. This is critical to the user experience as the calendar is a fundamental feature of the app, and creating such a calendar 'from scratch' would have been impractical within the time allowed for the project. React-Calendar was chosen because it is relatively lightweight and straightforward to use, enabling the key features to be implemented quickly, because it is compact in terms of its style, making it suitable for use on small mobile screens, and because it provides flexibility with respect to customisable CSS and calendar cell content (e.g. to enable the 'dots' used to indicate when there are events on a given day).
-
-### React-Router-DOM
+<a name="frameworks--libraries-and-dependencies"></a>
+### Frameworks, libraries and dependencies
 - [react-router-dom](https://www.npmjs.com/package/react-router-dom) - this library enables 'client side routing' for React web applications, and is used to implement basic routing in TribeHub, i.e. to implement the links on the bottom navbar, and register, sign-in and sign-out links. Using React-Router-DOM also enabled implementation of 'single page mode'to enhance the experience for users on larger screens. The `useSinglePage` custom hook is referenced in `App.js`, with different `Route` components conditionally rendered for the various paths depending on whether the app is running in single page mode. The `useLocation` hook from React-Router-DOM is used in some components to determine the current URL and respond accordingly, for example by ensuring the correct nav button is highlighted in the bottom navbar for mobile users.
-
-### ReactDOM
 - [react-dom](https://reactjs.org/docs/react-dom.html) - react-dom is used to manipulate the DOM outside of a specific component, and supports the user experience by enabling modal dialogs to be appended to the top level of the DOM (important for accessability) and alerts to be appended to specific components. For example, notifications are fetched by the NotificationsMenu component, but this takes the form of a dropdown menu, so using ReactDOM allows the component to 'reach out' into the DOM and display error alerts in a more obvious location than inside the dropdown.
-
-### Axios
 - [Axios](https://www.npmjs.com/package/axios) - the axios library was chosen to simplify making HTTP requests to the REST API (e.g. not having to manually configure HTTP headers), and because it enables simple implementation of 'interceptors' which are used to request a refresh token in the event of a HTTP 401 error. This enhances the user experience beacuse an authenticated user remains signed in for up to 24 hours, rather than having to sign in again after five minutes.
-
-### JWT Decode
 - [jwt-decode](https://www.npmjs.com/package/jwt-decode) - used to decode Base64URL encoded JSON web tokens.
-
-### Tailwind CSS
-- [TailwindCSS](https://tailwindcss.com/) - TailwindCSS was chosen partly in order to gain experience with an alternative to Bootstrap, and for its flexibility and quality of documentation. 
-
-### daisyUI
+- [TailwindCSS](https://tailwindcss.com/) - TailwindCSS was chosen partly in order to gain experience with an alternative to Bootstrap, and for its flexibility and quality of documentation.
 - [daisyUI](https://daisyui.com/) - this CSS component library is a TailwindCSS plugin, specifically chosen because of the 'bottom navigation' component which allowed quick implementation of a mobile-app style navbar at the bottom of the screen to provide a high quality mobile first user experience, and it's simple customisable colour theme functionality which enables a website to be built with a small number of colours represented by semantic CSS classes. This was well suited to TribeHub, which only requires a small number of colours with an emphasis on easy identification of UI elements. DaisyUI also supports specific dark mode themes, and although not a primary reason for choosing this library, the feature was utilised for an additional 'quick win' in terms of user experience.
-
-### React Bootstrap Icons
 - [React Bootstrap Icons](https://www.npmjs.com/package/react-bootstrap-icons) - this icon library was selected for the high quality and simplicity of the icons, and easy integration with React.
 
-## React features used to enhance user experience
-### Custom hooks
-The `useSingle` page custom hook is used throughout the app so that components can check whether the app is currently running in 'single page' mode, and render themselves accordingly, for example by applying appropriate CSS classes for the 'mobile' versus 'single page' views. Many components are reliant on a `useCurrentUser` hook to determine whether the current user is authenticated, and to obtain various details about the user such as profile image, display name and whether they have tribe admin status. 
+<a name="other-technologies"></a>
+### Other Technologies
+* [Gitpod](https://cloudinary.com/) as the IDE
+* [Git](https://git-scm.com/) used for version control via the terminal in Gitpod
+* [GitHub](https://github.com/) used to store the code in the repository
+* [Heroku](https://www.heroku.com/) was used as the cloud based platform for deployment
+
+* [Fontawesome](https://fontawesome.com/) for icons
+* [Cacoo](https://www.cacoo.com/) for the wireframes
+* [Iloveimg](https://iloveimg.com/) to resize images
+* [Coolors](https://coolors.co) to generate the colour palette
+* [Am I responsive](https://ui.dev/amiresponsive) to generate the mockup
+
+* [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) for inspection during development to check reponsiveness and contrast and JS errors in the console
+* [W3C Markup Validation Service](https://validator.w3.org/)
+* [W3C CSS Validation Service(Jigsaw)](https://jigsaw.w3.org/css-validator/)
+* [PEP8](https://www.python.org/dev/peps/pep-0008/) to validate the Python code
+* Lighthouse in dev tools for testing
 
 ## Testing
 
