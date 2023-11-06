@@ -1,6 +1,10 @@
-# Stories
+# Stories of the World
 
 ## Project goals
+
+Stories of the World is a social media platform designed to share stories of any kind: invented stories, stories a user experienced while traveling, myths that the user listened to in her own or in another country, legends about historical characters or childrens' stories - and all of them from all around the world. The focus is on the text instead of the images like on other social media platforms, however, for aestetic purposes, each story is accompanied by any kind of image (photo/drawing/etc.). Users will be able to like a story, to look at all stories from one specific storyteller and to follow a storyteller they especially like. Also they will be able to comment on stories from other storytellers.
+
+Enough of talking, let's invent some stories!
 
 ## Table of contents
 - [Stories](#stories)
@@ -45,10 +49,10 @@
     + [Code](#code)
     + [Media](#media)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 
 ## User stories
+
+
 
 ### Themes
 
