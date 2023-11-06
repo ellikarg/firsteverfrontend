@@ -2,16 +2,15 @@
 
 ## Project goals
 
-Stories of the World is a social media platform designed to share stories of any kind: invented stories, stories a user experienced while traveling, myths that the user listened to in her own or in another country, legends about historical characters or childrens' stories - and all of them from all around the world. The focus is on the text instead of the images like on other social media platforms, however, for aestetic purposes, each story is accompanied by any kind of image (photo/drawing/etc.). Users will be able to like a story, to look at all stories from one specific storyteller and to follow a storyteller they especially like. Also they will be able to comment on stories from other storytellers.
-
-Enough of talking, let's invent some stories!
+Stories of the World is a social media platform designed to share stories of any kind: invented stories, stories a user experienced while traveling, myths that the user listened to in her own or in another country, legends about historical characters or childrens' stories - and all of them from all around the world. <br><br>The focus is on the text instead of the images like on other social media platforms, however, for aestetic purposes, each story is accompanied by any kind of image (photo/drawing/etc.). Users will be able to like a story, to look at all stories from one specific storyteller and to follow a storyteller they especially like. Also they will be able to comment on stories from other storytellers.
+<br><br>
+Enough of talking, let's collect stories!
 
 ## Table of contents
 - [Stories](#stories)
   * [Project goals](#project-goals)
   * [Table of contents](#table-of-contents)
   * [User stories](#user-stories)
-    + [Themes](#themes)
     + [Epics](#epics)
     + [User stories](#user-stories-1)
   * [Agile development methodology](#agile-development-methodology)
@@ -52,15 +51,57 @@ Enough of talking, let's invent some stories!
 
 ## User stories
 
-
-
-### Themes
-
 ### Epics
 
+Epics were developed as a tool of agile development to give some structure to the development process. The following epics were defined: <br>
+
+NAVIGATION - regarding the navigation on the website <br>
+AUTHENTICATION - regarding the authentication and authorization features of the website <br>
+CONTENT CREATION - regarding the creation of content: stories (posts), likes, follow/unfollow-functionality, comments, profiles <br>
+CONTENT VIEWING - regarding the viewing of content: stories (posts), likes, follow/unfollow-functionality, comments, profiles <br>
+
 ### User stories
+NAVIGATION:<br>
+1. Navigation between pages: As a user I can view a navbar from every page so that I can navigate easily between pages
+2. Routing: As a user I can navigate through pages quickly so that I can view content seamlessly without page refresh
+3. Navigation based on Authentication: Conditional rendering - As a logged out user I can see sign in and sign up options so that I can sign in/sign up, whereas as a logged in user I can post stories, look at my feed and the stories I liked, as well as logout
+4. Avatar: As a user I can view other users' avatars so that I can easily identify the users of the application
+<br><br>AUTHENTICATION:<br><br>
+5. Sign up: As a user I can create a new account so that I can access all the features for signed up users
+6. Sign in: As a user I can sign in to the app so that I can access functionality for logged in users
+7. Logged in Status: As a user I can tell if I am logged in or not so that I can log in if I need to
+8. Refreshing access tokens: As a user I can maintain my logged-in status until I choose to log out so that my user experience is not compromised
+<br><br>CONTENT CREATION:<br><br>
+9. Create stories: As a logged in user I can create stories (posts) so that I can share my stories with the other users
+10. Like stories: As a logged in user I can like a story so that I can show my support for the stories that interest me
+11. Edit story: As a story owner I can edit my story title, description and content so that I can make corrections or update my story after it was created
+12. Create a comment: As a logged in user I can add comments to a story so that I can share my thoughts about the story
+13. Delete comments: As an owner of a comment I can delete my comment so that I can control removal of my comment from the application
+14. Edit a comment: As an owner of a comment I can edit my comment so that I can fix or update my existing comment
+15. Follow/Unfollow a user: As a logged in user I can follow and unfollow other users so that I can see and remove stories by specific users in my stories feed
+16. Edit profile: As a logged in user I can edit my profile so that I can change my profile picture etc.
+17. Update username and password: As a logged in user I can update my username and password so that I can change my display name and keep my profile secure
+<br><br>CONTENT VIEWING:<br><br>
+18. View most recent stories: As a user I can view all the most recent stories, ordered by most recently created first so that I am up to date with the newest content
+19. search for keywords: As a user, I can search for stories with keywords, so that I can find the stories I am most interested in
+20. View liked posts: As a logged in user I can view the stories I liked so that I can find the stories I enjoyed the most
+21. View stories of followed users: As a logged in user I can view content filtered by users I follow so that I can keep up to date with what they are posting about
+22. Infinite scroll: As a user I can keep scrolling through the content on the site, that is loaded for me automatically so that I don't have to click on "next page"
+23. Detail Story Page: As a user I can view the stories page so that I can read the whole story and comments about the it
+24. Comment date: As a user I can see how long ago a comment was made so that I know how old a comment is
+25. View comments: As a user I can read comments on stories so that I can read what other users think about it
+26. Profile page: As a user I can view other users profiles so that I can see all of their stories and can follow them
+27. User profile - user stats: As a user I can view statistics about a specific user: number of stories, follows and users followed so that I can learn about them
+28. View all stories by a specific user: As a user I can view all the stories by a specific user so that I can catch up on their latest posts, or decide if I want to follow them
 
 ## Agile development methodology
+GitHub issues and projects were used to document and track an agile development approach. A GitHub issue was created for each user story, with labels if the user story belongs to the "must-haves", "should-haves" or "nice-to-haves". GitHub milestones were created to represent the epics.
+
+A project kanban board was used to track progress, with user stories moved between 'Todo', 'In Progress' and 'Done' columns as appropriate.
+
+
+
+The project board in its final form can be accessed at [Stories of the World GitHub Project](https://github.com/users/ellikarg/projects/3).
 
 ## Planning
 
