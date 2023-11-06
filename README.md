@@ -99,13 +99,17 @@ GitHub issues and projects were used to document and track an agile development 
 
 A project kanban board was used to track progress, with user stories moved between 'Todo', 'In Progress' and 'Done' columns as appropriate.
 
-
+<img src="readme_assets/user_stories.PNG" height=300>
 
 The project board in its final form can be accessed at [Stories of the World GitHub Project](https://github.com/users/ellikarg/projects/3).
 
 ## Planning
 
 ### Mockups
+
+<details><summary>Homepage</summary>
+<img src="readme_assets/wireframe_homepage.PNG">
+</details>
 
 ### Data models
 
