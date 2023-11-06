@@ -23,7 +23,7 @@ Enough of talking, let's collect stories!
   * [Features](#features)
     + [CRUD functionality](#crud-functionality)
     + [Future improvements and features](#future-improvements-and-features)
-  * [Technologies Used](#technologies used)
+  * [Technologies Used](#technologies-used)
     + [Frameworks, libraries and dependencies](#frameworks--libraries-and-dependencies)
     + [Other Technologies](#other-technologies)
   * [React features used to enhance user experience](#react-features-used-to-enhance-user-experience)
