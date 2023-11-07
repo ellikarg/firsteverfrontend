@@ -1,0 +1,28 @@
+.auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    background-color: #471323;
+    object-fit: scale-down;
+}
+
+.auth h1 {
+    color: #fcfffc;
+    margin: 10px 10px 5px 10px;
+}
+
+.auth form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #471323;
+    padding: 15px;
+    margin: 5px 10px 10px 10px;
+}
+
+.auth input {
+    border: none;
+    border-bottom: 1px solid #1A1423;
+}

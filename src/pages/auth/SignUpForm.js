@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import {Form, Button, Alert} from 'react-bootstrap';
+import styles from '../../styles/Signinup.module.css';
+import Buttons from '../../styles/Button.module.css';
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useRedirect } from '../../hooks/useRedirect';
@@ -38,6 +40,9 @@ const SignUpForm = () => {
   };
   
   return (
+    <>
+    <div className={styles.auth}>
+      <h1>Register</h1>
       <Form onSubmit={handleSubmit}>
           <Form.Group controlId="username">
               <Form.Label className="d-none">Username</Form.Label>
@@ -83,10 +88,10 @@ const SignUpForm = () => {
                   onChange={handleChange}
               />
           </Form.Group>
-          <Form.Text id="passwordHelpBlock" muted>
+          {/* <Form.Text id="passwordHelpBlock" muted>
               Your password must be 8-20 characters long, contain letters and numbers, and
                   must not contain spaces, special characters, or emoji.
-          </Form.Text>
+          </Form.Text> */}
 
           {errors.password2?.map((message, idx) => (
             <Alert variant="warning" key={idx}>
@@ -99,11 +104,13 @@ const SignUpForm = () => {
               {message}
             </Alert>
           ))}
-          <Button variant="primary" type="submit">
+          <Button className={Buttons.buttonDark} variant="primary" type="submit">
               Sign Up
           </Button>
 
       </Form>
+    </div>
+    </>
   )
 }
 
