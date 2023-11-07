@@ -4,3 +4,25 @@
     border: none;
     border-radius: 10%;
 }
+
+.buttonDark:hover {
+    background-color: #515A47;
+    border: none;
+}
+
+.buttonDark:focus {
+    background-color: #515A47;
+    border: 2px solid #515A47;
+}
+
+.buttonLight {
+    background-color: #E58F65;
+    color: #1A1423;
+    border: none;
+    border-radius: 10%;
+}
+
+.buttonLight:hover {
+    background-color: #fcfffc;
+    color: #1A1423;
+}
