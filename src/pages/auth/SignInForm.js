@@ -7,6 +7,7 @@ import axios from "axios";
 import { useSetCurrentUser } from '../../contexts/CurrentUserContext';
 import { useRedirect } from '../../hooks/useRedirect';
 import { setTokenTimestamp } from '../../utils/utils';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 function SignInForm() {
     const setCurrentUser = useSetCurrentUser();
@@ -73,9 +74,10 @@ function SignInForm() {
                         className="mt-3">
                         {message}</Alert>
                 ))}
-                <Button className={Buttons.buttonDark} variant="primary" type="submit">
+                <Button className={Buttons.buttonDark} type="submit">
                     Sign in
                 </Button>
+                <p>You don't have an account yet?<br/><Link to="/signup">Register here</Link></p>
             </Form>
         </div>
         </div>

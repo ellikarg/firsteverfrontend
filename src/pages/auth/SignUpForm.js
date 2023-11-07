@@ -5,6 +5,7 @@ import Buttons from '../../styles/Button.module.css';
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useRedirect } from '../../hooks/useRedirect';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 
 const SignUpForm = () => {
@@ -105,9 +106,9 @@ const SignUpForm = () => {
             </Alert>
           ))}
           <Button className={Buttons.buttonDark} variant="primary" type="submit">
-              Sign Up
+              Sign up
           </Button>
-
+          <p>Already have an account? <Link to="/signin">Sign in</Link></p>
       </Form>
     </div>
     </>
