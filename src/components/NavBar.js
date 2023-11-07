@@ -32,8 +32,9 @@ const NavBar = () => {
     const addPostIcon = (
         <NavLink to="/posts/create"
             className={styles.NavLink}
-            activeClassName={styles.Active} >
-            <i className="fa-solid fa-plus-square"></i>Add Post
+            activeClassName={styles.Active}
+            id={styles.AddPost} >
+            <i class="fa-solid fa-pen-to-square"></i>Add Post
         </NavLink>
     )
 
