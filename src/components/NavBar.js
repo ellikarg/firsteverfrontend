@@ -34,7 +34,7 @@ const NavBar = () => {
             className={styles.NavLink}
             activeClassName={styles.Active}
             id={styles.AddPost} >
-            <i class="fa-solid fa-pen-to-square"></i>Add Post
+            <i className="fa-solid fa-pen-to-square"></i>Add Post
         </NavLink>
     )
 
