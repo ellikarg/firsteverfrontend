@@ -81,7 +81,42 @@ const Post = (props) => {
     };
 
     return (
-        <Card className={styles.Post}>
+        <>
+        <Card>
+            <div className={styles.Container}>
+                <Card.Img src={image} alt={title}
+                    className={appStyles.Image}/>
+                <div className={styles.Likes}>
+                    <div className={styles.Bubble}>
+                        {is_owner ? (
+                            <OverlayTrigger
+                                placement='top'
+                                overlay=
+                                {<Tooltip>You can't like your own post!</Tooltip>}>
+                                <i className="far fa-heart" />
+                            </OverlayTrigger>
+                        ) : like_id ? (
+                            <span onClick={handleUnlike}>
+                                <i className={`fas fa-heart ${styles.Heart}`}/>
+                            </span>
+                        ) : CurrentUser ? (
+                            <span onClick={handleLike}>
+                                <i className={`far fa-heart
+                                    ${styles.HeartOutline}`}
+                                />
+                            </span>
+                        ) : (
+                            <OverlayTrigger
+                            placement='top'
+                            overlay={<Tooltip>Log in to like Posts!</Tooltip>}>
+                                <i className='far fa-heart' />
+                            </OverlayTrigger>
+                        )}
+                        {likes_count}
+                    </div>
+                </div>
+            </div>
+            {postPage && 
             <Card.Body>
                 <Media
                     className='align-items-center
@@ -99,50 +134,22 @@ const Post = (props) => {
                             />}
                     </div>
                 </Media>
-            </Card.Body>
-            <Link to={`/posts/${id}`}>
-                <Card.Img src={image} alt={title}
-                    className={appStyles.Image} />
-            </Link>
-            <Card.Body>
-                {title && 
-                <Card.Title className='text-center'>{title}</Card.Title>}
-                {description && <Card.Subtitle
-                    className="mb-2 text-muted">{description}</Card.Subtitle>}
-                {content && postPage && <Card.Text>{content}</Card.Text>}
-                <div className={styles.PostBar}>
-                    {is_owner ? (
-                        <OverlayTrigger
-                            placement='top'
-                            overlay=
-                            {<Tooltip>You can't like your own post!</Tooltip>}>
-                            <i className="far fa-heart" />
-                        </OverlayTrigger>
-                    ) : like_id ? (
-                        <span onClick={handleUnlike}>
-                            <i className={`fas fa-heart ${styles.Heart}`}/>
-                        </span>
-                    ) : CurrentUser ? (
-                        <span onClick={handleLike}>
-                            <i className={`far fa-heart
-                                ${styles.HeartOutline}`}
-                            />
-                        </span>
-                    ) : (
-                        <OverlayTrigger
-                        placement='top'
-                        overlay={<Tooltip>Log in to like Posts!</Tooltip>}>
-                            <i className='far fa-heart' />
-                        </OverlayTrigger>
-                    )}
-                    {likes_count}
-                    <Link to={`/posts/${id}`}>
-                        <i className='far fa-comments' />
+            </Card.Body>}
+            <Card.Body className='text-center'>
+                    <Link to={`/posts/${id}`} className={styles.CardLink}>
+                        {title && 
+                            <Card.Title>{title}</Card.Title>}
+                        {description && <Card.Subtitle
+                            className="mb-2 text-muted">{description}</Card.Subtitle>}
+                        {content && postPage && <Card.Text>{content}</Card.Text>}
+                    </Link>
+                    <Link to={`/posts/${id}`} className={styles.CardLink}>
+                        <i className="fa-solid fa-feather"></i>
                     </Link>
                     {comments_count}
-                </div>
             </Card.Body>
         </Card>
+        </>
     )
 }
 
