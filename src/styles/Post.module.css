@@ -1,24 +1,46 @@
-.Post {
-    background-color: #ffffff;
-    border: 1px solid #dadadf;
-    border-radius: 2px;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-  
-  .Post figure,
-  h5 {
-    margin: 0 0;
-  }
-  
-  .Heart {
-    color: #f85032;
-  }
-  
-  .Heart:hover {
-    color: #2142b2;
-  }
-  
-  .HeartOutline:hover {
-    color: #f85032;
-  }
+.CardLink {
+  color: #471323;
+}
+
+.CardLink:hover {
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.Container {
+  position: relative;
+}
+
+.Likes {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.Bubble {
+  background-color: rgba(252, 255, 252, 0.7);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Heart {
+  color: #E58F65;
+  border-color: #471323;
+}
+
+.Heart:hover {
+  color: #471323;
+}
+
+.HeartOutline:hover {
+  color: #E58F65;
+}
