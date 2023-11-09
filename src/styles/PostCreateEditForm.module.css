@@ -1,3 +1,12 @@
 .Container {
-  min-height: 343px;
+  min-height: 200px;
+}
+
+.EditorContainer {
+  min-height: 200px;
+  overflow: scroll;
+}
+
+.EditorQuill {
+  height: 60%;
 }
