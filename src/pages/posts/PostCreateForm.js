@@ -10,6 +10,7 @@ import Upload from "../../assets/upload_img.PNG";
 
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
+import Buttons from "../../styles/Button.module.css";
 
 import Asset from "../../components/Assets";
 import { Alert, Image } from "react-bootstrap";
@@ -19,7 +20,6 @@ import { axiosReq } from "../../api/axiosDefaults";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useRedirect } from "../../hooks/useRedirect";
-// import parse from 'html-react-parser';
 
 function PostCreateForm() {
     useRedirect('loggedOut');
@@ -45,19 +45,24 @@ function PostCreateForm() {
         });
     };
 
-    const modules = {
-        toolbar: [['bold', 'italic', 'underline', 'strike']],
+    const handleQuillChange = (value) => {
+        const richText = getRichText(value);
+        if (richText !== postData.content) {
+            setPostData({
+            ...postData,
+            content: richText,
+            });
+            console.log(richText);
+        }
     };
 
-    const formats = [
-        'bold', 'italic', 'underline', 'strike',
-    ];
-
-    const handleQuillChange = (value) => {
-        setPostData({
-          ...postData,
-          content: value,
-        });
+    const getRichText = (html) => {
+        if (!html) {
+            return "";
+        }
+        const div = document.createElement('div');
+        div.innerHTML = html;
+        return div.innerText;
     };
 
     const handleChangeImage = (event) => {
@@ -124,14 +129,15 @@ function PostCreateForm() {
 
                 <Form.Group>
                     <Form.Label className="d-none">Content</Form.Label>
+                    <div className={styles.EditorContainer}>
                         <ReactQuill
+                        className={styles.EditorQuill}
                         theme="snow"
-                        value={postData.content}
+                        value={content}
                         onChange={handleQuillChange}
                         placeholder="Enter your content"
-                        modules={modules}
-                        formats={formats}
                         />
+                    </div>
                     {/* <Form.Control
                         as="textarea"
                         placeholder="Enter your content"
@@ -146,8 +152,11 @@ function PostCreateForm() {
                     <Alert variant="warning" key={idx}>{message}</Alert>
                 ))}
 
-            <Button onClick={() => history.goBack()}>cancel</Button>
-            <Button type="submit">create</Button>
+            <Button
+                onClick={() => history.goBack()}
+                className={Buttons.buttonDark}
+            >cancel</Button>
+            <Button type="submit" className={Buttons.buttonDark}>create</Button>
         </div>
     );
 
@@ -155,8 +164,7 @@ function PostCreateForm() {
         <Form onSubmit={handleSubmit}>
             <Row>
                 <Col className="py-2 p-0 p-md-2"
-                    md={7}
-                    lg={8}>
+                    md={5}>
                     <Container className={
                         `${appStyles.Content} 
                         ${styles.Container} 
@@ -185,7 +193,7 @@ function PostCreateForm() {
                                     message="Click or tap to upload an image"
                                 />
                                 </Form.Label>
-                            )};
+                            )}
 
                             <Form.File
                                 id="image-upload"
@@ -202,8 +210,7 @@ function PostCreateForm() {
                         <div className="d-md-none">{textFields}</div>
                     </Container>
                 </Col>
-                <Col md={5}
-                    lg={4}
+                <Col md={7}
                     className="d-none d-md-block p-0 p-md-2">
                     <Container className={appStyles.Content}>
                         {textFields}</Container>
