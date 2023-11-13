@@ -17,6 +17,37 @@
   color: #cfced3;
 }
 
+.PostsContent {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.Categories {
+  border-bottom: 1.5px solid #515A47;
+  border-top: 1.5px solid #515A47;
+  min-width: 140px;
+  margin: 15px 0;
+}
+
+.Categories h1 {
+  font-size: larger;
+  text-align: center;
+  margin: 10px 0;
+  font: bold;
+  color: #515A47;
+}
+
+.Category {
+  min-width: fit-content;
+  margin: 10px 0;
+  padding: 5px;
+  min-width: 60px;
+  background-color: rgba(81,90,71,0.1);
+  border-radius: 20px;
+  text-align: center;
+  font-size: small;
+}
+
 .MyMasonryGrid {
   display: -webkit-box; /* Not needed if autoprefixing */
   display: -ms-flexbox; /* Not needed if autoprefixing */
@@ -32,4 +63,11 @@
 
 .MyMasonryGridColumn > div { /* change div to reference your elements you put in <Masonry> */
   margin-bottom: 30px;
+}
+
+@media screen and (max-width:768px) {
+  .Catflex {
+    display: flex;
+    justify-content: space-evenly;
+  }
 }

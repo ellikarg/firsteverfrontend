@@ -26,6 +26,8 @@ function PostsPage({message, filter=""}) {
   const [query, setQuery] = useState("");
   const currentUser = useCurrentUser();
 
+  const [cats, setCats] = useState([]);
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -37,9 +39,21 @@ function PostsPage({message, filter=""}) {
       }
     };
     setHasLoaded(false);
+
+    const getCats = async () => {
+      try {
+        const res = await axiosReq.get("/categories");
+        setCats(res.data);
+      } catch(err) {
+        console.log(err);
+      }
+    };
+    getCats();
+
     const timer = setTimeout(() => {
       fetchPosts();
     }, 1000);
+    
     return () => {
       clearTimeout(timer);
     };
@@ -64,8 +78,20 @@ function PostsPage({message, filter=""}) {
           </Form>
         </Col>
       </Row>
-      <Row>
-        <Col md={10}>
+      <Row className={styles.PostsContent}>
+        <Col md={2} className="d-lg-block">
+          <div className={styles.Categories}>
+            <h1>Categories:</h1>
+            <div className={styles.Catflex}>
+              {hasLoaded && (
+                cats.results.map((c) => (
+                  <div className={styles.Category} key={c.id}>{c.name}</div>
+                ))
+              )}
+            </div>
+          </div>
+        </Col>
+        <Col md={10} className={styles.Posts}>
           {hasLoaded ? (
             <>
               {posts.results.length ? (
@@ -99,9 +125,6 @@ function PostsPage({message, filter=""}) {
               </Container>
             </div>
           )}
-        </Col>
-        <Col md={2} className="d-none d-lg-block p-0 p-lg-2">
-          <p>Categories</p>
         </Col>
       </Row>
     </Container>
