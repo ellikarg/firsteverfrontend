@@ -17,10 +17,15 @@
 }
 
 .buttonLight {
-    background-color: #E58F65;
+    background-color: rgba(229,143,101,0.2);
     color: #1A1423;
     border: none;
-    border-radius: 10%;
+    border-radius: 20px;
+    margin: 3px;
+    width: 130px;
+    padding: 5px;
+    text-align: center;
+    font-size: small;
 }
 
 .buttonLight:hover {
