@@ -26,7 +26,6 @@
   border-bottom: 1.5px solid #515A47;
   border-top: 1.5px solid #515A47;
   min-width: 140px;
-  margin: 20px 0;
 }
 
 .Categories h1 {
@@ -39,6 +38,9 @@
 
 .Catflex {
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .MyMasonryGrid {

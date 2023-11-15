@@ -12,6 +12,10 @@
   position: relative;
 }
 
+.CardItems {
+  padding: 10px;
+}
+
 .Likes {
   position: absolute;
   top: 5%;
