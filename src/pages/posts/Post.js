@@ -22,6 +22,7 @@ const Post = (props) => {
         description,
         content,
         image,
+        category_name,
         updated_at,
         postPage,
         setPosts,
@@ -147,6 +148,11 @@ const Post = (props) => {
                         <i className="fa-solid fa-feather"></i>
                     </Link>
                     {comments_count}
+                    {category_name === null? (
+                        <p>No category yet</p>
+                    ) : (
+                        <p>Category: {category_name}</p>
+                    ) }
             </Card.Body>
         </Card>
         </>
