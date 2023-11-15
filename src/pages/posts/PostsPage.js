@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
+import Buttons from "../../styles/Button.module.css";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
@@ -18,6 +19,7 @@ import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Masonry from 'react-masonry-css';
 
+
 function PostsPage({message, filter=""}) {
   const [posts, setPosts] = useState({results: []});
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -28,11 +30,14 @@ function PostsPage({message, filter=""}) {
 
   const [cats, setCats] = useState([]);
 
+  const [filteredPosts, setFilteredPosts] = useState({results: []});
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         const {data} = await axiosReq.get(`/posts/?${filter}search=${query}`);
         setPosts(data);
+        setFilteredPosts(data);
         setHasLoaded(true);
       } catch(err) {
         console.log(err);
@@ -58,6 +63,14 @@ function PostsPage({message, filter=""}) {
       clearTimeout(timer);
     };
   }, [filter, query, pathname, currentUser]);
+
+  const filterResult = (catItem) => {
+    const result = posts.results.filter(curData => curData.category === catItem);
+    setFilteredPosts((prevFilteredPosts) => ({
+      ...prevFilteredPosts,
+      results: result,
+      }));
+  };
   
   return (
     <Container>
@@ -85,7 +98,7 @@ function PostsPage({message, filter=""}) {
             <div className={styles.Catflex}>
               {hasLoaded && (
                 cats.results.map((c) => (
-                  <div className={styles.Category} key={c.id}>{c.name}</div>
+                  <button className={Buttons.buttonLight} key={c.id} onClick={() => filterResult(c.id)}>{c.name}</button>
                 ))
               )}
             </div>
@@ -94,20 +107,19 @@ function PostsPage({message, filter=""}) {
         <Col md={10} className={styles.Posts}>
           {hasLoaded ? (
             <>
-              {posts.results.length ? (
+              {filteredPosts.results.length ? (
                 <InfiniteScroll
-                  dataLength={posts.results.length}
-                  loader={<Asset spinner />}
-                  hasMore={!!posts.next}
-                  next={() => fetchMoreData(posts, setPosts)}
+                  dataLength={filteredPosts.results.length}
+                  hasMore={!!filteredPosts.next}
+                  next={() => fetchMoreData(filteredPosts, setFilteredPosts)}
                   >
                     <Masonry
                       breakpointCols={{default: 3, 1000: 2, 800: 1}}
                       className={styles.MyMasonryGrid}
                       columnClassName={styles.MyMasonryGridColumn}
                     >
-                      {posts.results.map((post) => (
-                        <div key={post.id}><Post {...post} setPosts={setPosts} /></div>
+                      {filteredPosts.results.map((post) => (
+                        <div key={post.id}><Post {...post} setPosts={setFilteredPosts} /></div>
                       ))
                       }
                     </Masonry>
