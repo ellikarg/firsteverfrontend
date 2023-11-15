@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -17,26 +17,67 @@ import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+// import ReactQuill from 'react-quill';
+// import 'react-quill/dist/quill.snow.css';
 import { useRedirect } from "../../hooks/useRedirect";
 
 function PostCreateForm() {
     useRedirect('loggedOut');
     const [errors, setErrors] = useState({});
+    // const [quillContent, setQuillContent] = useState('');
+    // const quillRef = useRef(null);
 
     const [postData, setPostData] = useState({
         title: "",
         description: "",
         content: "",
         image: "",
-    })
+        category: "",
+    });
 
-    const { title, description, content, image } = postData;
+    const { title, description, image, content, category} = postData;
 
     const imageInput = useRef(null);
 
     const history = useHistory();
+
+    const [cats, setCats] = useState([]);
+
+    useEffect(() => {
+        const getCats = async () => {
+            try {
+              const res = await axiosReq.get("/categories");
+              setCats(res.data);
+            } catch(err) {
+              console.log(err);
+            }
+          };
+          getCats();
+    }, []);
+
+    // const handleChange = (event) => {
+    //     const { name, value } = event.target;
+
+    // // Handle standard form inputs
+    //     if (name !== 'quillContent') {
+    //         setPostData({
+    //             ...postData,
+    //             [name]: value,
+    //         });
+    //     }       
+
+    // // Handle Quill editor
+    //     if (name === 'quillContent') {
+    //         const editor = quillRef.current.getEditor();
+    //         if (editor) {
+    //             const quillInput = editor.clipboard.convert(editor.getSemanticHTML());
+    //             setPostData({
+    //                 ...postData,
+    //                 content: quillInput,
+    //             });
+    //         }
+    //     }
+    // };
 
     const handleChange = (event) => {
         setPostData({
@@ -45,25 +86,25 @@ function PostCreateForm() {
         });
     };
 
-    const handleQuillChange = (value) => {
-        const richText = getRichText(value);
-        if (richText !== postData.content) {
-            setPostData({
-            ...postData,
-            content: richText,
-            });
-            console.log(richText);
-        }
-    };
+    // const handleQuillChange = (value) => {
+    //     const richText = getRichText(value);
+    //     if (richText !== postData.content) {
+    //         setPostData({
+    //         ...postData,
+    //         content: richText,
+    //         });
+    //         console.log(richText);
+    //     }
+    // };
 
-    const getRichText = (html) => {
-        if (!html) {
-            return "";
-        }
-        const div = document.createElement('div');
-        div.innerHTML = html;
-        return div.innerText;
-    };
+    // const getRichText = (html) => {
+    //     if (!html) {
+    //         return "";
+    //     }
+    //     const div = document.createElement('div');
+    //     div.innerHTML = html;
+    //     return div.innerText;
+    // };
 
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
@@ -75,7 +116,7 @@ function PostCreateForm() {
         }
     };
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event, cats) => {
         event.preventDefault();
         const formData = new FormData();
 
@@ -83,6 +124,7 @@ function PostCreateForm() {
         formData.append('description', description);
         formData.append('content', content);
         formData.append('image', imageInput.current.files[0]);
+        formData.append('category', category);
 
         try {
             const {data} = await axiosReq.post('/posts/', formData);
@@ -97,60 +139,85 @@ function PostCreateForm() {
 
     const textFields = (
         <div className="text-center">
-                <Form.Group>
-                    <Form.Label className="d-none">Title</Form.Label>
-                    <Form.Control
-                        type="text"
-                        placeholder="Enter your title"
-                        name="title"
-                        value={title}
-                        onChange={handleChange}
+            <Form.Group>
+                <Form.Label className="d-none">Title</Form.Label>
+                <Form.Control
+                    type="text"
+                    placeholder="Enter your title"
+                    name="title"
+                    value={title}
+                    onChange={handleChange}
+                />
+            </Form.Group>
+
+            {errors?.title?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>{message}</Alert>
+            ))}
+
+            <Form.Group>
+                <Form.Label className="d-none">Short Description</Form.Label>
+                <Form.Control
+                    type="text"
+                    placeholder="Enter a short description"
+                    name="description"
+                    value={description}
+                    onChange={handleChange}
+                />
+            </Form.Group>
+
+            {errors?.description?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>{message}</Alert>
+            ))}
+
+            <Form.Group>
+                <Form.Label className="d-none">Content</Form.Label>
+                {/* <div className={styles.EditorContainer}>
+                    <ReactQuill
+                    className={styles.EditorQuill}
+                    theme="snow"
+                    ref={quillRef}
+                    name="quillContent"
+                    value={quillContent}
+                    onChange={setQuillContent}
+                    placeholder="Enter your content"
                     />
-                </Form.Group>
+                </div> */}
+                <Form.Control
+                    as="textarea"
+                    placeholder="Enter your content"
+                    name="content"
+                    rows={6}
+                    value={content}
+                    onChange={handleChange}>
+                </Form.Control>
+            </Form.Group>
 
-                {errors?.title?.map((message, idx) => (
-                    <Alert variant="warning" key={idx}>{message}</Alert>
-                ))}
+            {errors?.content?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>{message}</Alert>
+            ))}
 
-                <Form.Group>
-                    <Form.Label className="d-none">Short Description</Form.Label>
-                    <Form.Control
-                        type="text"
-                        placeholder="Enter a short description"
-                        name="description"
-                        value={description}
-                        onChange={handleChange}
-                    />
-                </Form.Group>
+            <Form.Group controlId="exampleForm.SelectCustom">
+                <Form.Label className="d-none">Category</Form.Label>
+                <Form.Control
+                    as="select"
+                    custom
+                    name="category"
+                    value={category}
+                    onChange={handleChange}>
+                <option value="" disabled>Choose a Category</option>
+                {cats.length === 0 ? (
+                    <option>Loading Categories...</option>
+                ):(
+                    cats.results.map((c) => (
+                        <option key={c.id} value={c.id}>{c.name}</option>
+                    ))
+                )}                
+                </Form.Control>
+            </Form.Group>
 
-                {errors?.description?.map((message, idx) => (
-                    <Alert variant="warning" key={idx}>{message}</Alert>
-                ))}
-
-                <Form.Group>
-                    <Form.Label className="d-none">Content</Form.Label>
-                    <div className={styles.EditorContainer}>
-                        <ReactQuill
-                        className={styles.EditorQuill}
-                        theme="snow"
-                        value={content}
-                        onChange={handleQuillChange}
-                        placeholder="Enter your content"
-                        />
-                    </div>
-                    {/* <Form.Control
-                        as="textarea"
-                        placeholder="Enter your content"
-                        name="content"
-                        rows={6}
-                        value={content}
-                        onChange={handleChange}>
-                    </Form.Control> */}
-                </Form.Group>
-
-                {errors?.content?.map((message, idx) => (
-                    <Alert variant="warning" key={idx}>{message}</Alert>
-                ))}
+            {errors?.category?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>{message}</Alert>
+            ))}
 
             <Button
                 onClick={() => history.goBack()}
