@@ -25,6 +25,7 @@ const Post = (props) => {
         category_name,
         updated_at,
         postPage,
+        postsPage,
         setPosts,
         } = props;
 
@@ -137,21 +138,31 @@ const Post = (props) => {
                 </Media>
             </Card.Body>}
             <Card.Body className='text-center'>
+                    {postPage && <>
+                        {title && 
+                            <Card.Title className={styles.CardItems}>{title}</Card.Title>}
+                        {description && <Card.Subtitle
+                            className="mb-2 text-muted">{description}</Card.Subtitle>}
+                        {content && <Card.Text className={styles.CardItems}>{content}</Card.Text>}
+                        <i className="fa-solid fa-feather"></i>
+                    </>
+                    }
+                    {postsPage && <>
                     <Link to={`/posts/${id}`} className={styles.CardLink}>
                         {title && 
                             <Card.Title>{title}</Card.Title>}
                         {description && <Card.Subtitle
                             className="mb-2 text-muted">{description}</Card.Subtitle>}
-                        {content && postPage && <Card.Text>{content}</Card.Text>}
                     </Link>
                     <Link to={`/posts/${id}`} className={styles.CardLink}>
                         <i className="fa-solid fa-feather"></i>
-                    </Link>
+                    </Link></>
+                    }
                     {comments_count}
                     {category_name === null? (
                         <p>No category yet</p>
                     ) : (
-                        <p>Category: {category_name}</p>
+                        <p className={styles.CardItems}>Category: {category_name}</p>
                     ) }
             </Card.Body>
         </Card>

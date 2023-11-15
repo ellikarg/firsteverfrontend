@@ -119,7 +119,7 @@ function PostsPage({message, filter=""}) {
                       columnClassName={styles.MyMasonryGridColumn}
                     >
                       {filteredPosts.results.map((post) => (
-                        <div key={post.id}><Post {...post} setPosts={setFilteredPosts} /></div>
+                        <div key={post.id}><Post {...post} setPosts={setFilteredPosts} postsPage/></div>
                       ))
                       }
                     </Masonry>
