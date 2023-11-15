@@ -38,29 +38,29 @@ const NavBar = () => {
         </NavLink>
     )
 
-    const loggedInIcons = 
-        <>
-        <NavLink to="/feed"
-            className={styles.NavLink}
-            activeClassName={styles.Active} >
-            <i className="fa-solid fa-stream"></i>Feed
-        </NavLink>
-        <NavLink to="/liked"
-            className={styles.NavLink}
-            activeClassName={styles.Active} >
-            <i className="fa-solid fa-heart"></i>Liked
-        </NavLink>
-        <NavLink to="/" 
-            onClick={handleSignOut}
-            className={styles.NavLink} >
-            <i className="fa-solid fa-sign-out-alt"></i>Sign out
-        </NavLink>
-        <NavLink to={`/profiles/${currentUser?.profile_id}`}
-            className={styles.NavLink}
-            activeClassName={styles.Active} >
-            <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
-        </NavLink>
-        </>
+    const loggedInIcons =
+        <div>
+            <NavLink to="/feed"
+                className={styles.NavLink}
+                activeClassName={styles.Active} >
+                <i className="fa-solid fa-stream"></i>Feed
+            </NavLink>
+            <NavLink to="/liked"
+                className={styles.NavLink}
+                activeClassName={styles.Active} >
+                <i className="fa-solid fa-heart"></i>Liked
+            </NavLink>
+            <NavLink to="/" 
+                onClick={handleSignOut}
+                className={styles.NavLink} >
+                <i className="fa-solid fa-sign-out-alt"></i>Sign out
+            </NavLink>
+            <NavLink to={`/profiles/${currentUser?.profile_id}`}
+                className={styles.NavLink}
+                activeClassName={styles.Active} >
+                <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
+            </NavLink>
+        </div>
 
     const loggedOutIcons = 
         <>
