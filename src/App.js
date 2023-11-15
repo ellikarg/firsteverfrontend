@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import styles from './App.module.css';
 import NavBar from './components/NavBar';
 import Container from "react-bootstrap/Container";
@@ -16,6 +15,7 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import NotFound from './components/NotFound';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -68,6 +68,7 @@ function App() {
                     <Route render={() => <NotFound />}/>
                 </Switch>
         </Container>
+        <Footer />
     </div>
     );
 }

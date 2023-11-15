@@ -1,0 +1,11 @@
+.FooterContainer {
+    max-width: 960px;
+    height: 100px;
+    margin: 20px auto 0;
+    background-color: rgba(81,90,71,0.1);
+}
+
+.FooterContent {
+    text-align: center;
+    padding-top: 40px;
+}
