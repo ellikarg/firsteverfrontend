@@ -1,14 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-
 import styles from "../../styles/PostCreateEditForm.module.css";
+import Buttons from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
-
 import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -186,8 +184,12 @@ function PostEditForm() {
                     {message}</Alert>
             ))}
 
-            <Button onClick={() => history.goBack()}>cancel</Button>
-            <Button type="submit">save</Button>
+            <Button
+                onClick={() => history.goBack()}
+                className={Buttons.buttonDark}>
+                    cancel
+            </Button>
+            <Button type="submit" className={Buttons.buttonDark}>save</Button>
         </div>
     );
 
