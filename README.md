@@ -21,10 +21,11 @@ Enough of talking, let's collect stories!
     + [Data models](#data-models)
   * [Design](#design)
     + [Colours](#colours)
-    + [Fonts](#fonts)
+    + [Typography](#typography)
   * [Features](#features)
     + [CRUD functionality](#crud-functionality)
     + [Future improvements and features](#future-improvements-and-features)
+  * [Reuse of components](#reuse-of-components)
   * [Technologies Used](#technologies-used)
     + [Frameworks, libraries and dependencies](#frameworks--libraries-and-dependencies)
     + [Other Technologies](#other-technologies)
@@ -157,6 +158,23 @@ I have many ideas how Stories of the World can be improved by adding features in
 - a filter for categories based on the length of the story
 - many more....
 
+## Reuse of components
+
+A number of reusable React components were created with the intention of reducing code duplication.
+
+`Assets.js`<br>
+Used to render the loading spinner utilised throughout the app.<br><br>
+`Avatar.js`<br>
+Utilised to display the users avatars on their profile and below the stories they have written.<br><br>
+`Footer.js`<br>
+The Footer Component, placed underneath all the content on every page.<br><br>
+`MoreDropdown.js`<br>
+The MoreDropdown Component is utilised everywhere, where there are several options to select from. In order to have a cleaner look, the Dropdown is inserted.<br><br>
+`NavBar.js`<br>
+The Navbar Component, placed above all the content on every page and allows navigation over all pages.<br><br>
+`NotFound.js`<br>
+The NotFound Component is used everywhere where the requested data does not exist in the backend<br><br>
+
 <a name="technologies-used"></a>
 ## Technologies Used
 
@@ -168,7 +186,7 @@ I have many ideas how Stories of the World can be improved by adding features in
 - [jwt-decode](https://www.npmjs.com/package/jwt-decode) - used for a token refresh fix.
 - [React Bootstrap](https://www.npmjs.com/package/react-bootstrap) - this library was selected for the simplicity of inserting responsive components, such as cards or authentication pages, and its easy integration with React.
 - [React Infinite Scroll Component](https://www.npmjs.com/package/react-infinite-scroll-component) - used for loading only a certain amount of stories that the user can scroll through before loading again when she reaches the end of the page. This is good UX since the user does not have to click "next page" in order to view older stories (posts).
-- [React Masonry CSS](https://www.npmjs.com/package/react-masonry-css) - used to achieve the layout that uses the space maximally without leaving blank spaces between the story-cards, when one description is longer than another. This results in a masonry layout that I find very fitting for the purpose of the website.
+- [React Masonry CSS](https://www.npmjs.com/package/react-masonry-css) - used to achieve the layout that uses the space maximally without leaving blank spaces between the story-cards, when one description is longer than another. This results in a masonry layout that I find very fitting for the purpose of the website (to focus on the stories, their description and heading and use the image just as an eye-catcher).
 
 <a name="other-technologies"></a>
 ### Other Technologies
@@ -189,6 +207,12 @@ I have many ideas how Stories of the World can be improved by adding features in
 * [PEP8](https://www.python.org/dev/peps/pep-0008/) to validate the Python code
 * Lighthouse in dev tools for testing
 
+## React features used to enhance user experience
+
+### Custom Hooks
+
+The useRedirect hook is used - surprise - to redirect the user depending on the state of authentication. The useClickOutsideToggle hook is managing the user-friendly behaviour of the navbar-toggler, which toglles back to its closed state as soon as the user chose an option from the navbar or when the user clicks outside the navbar. Many components are reliant on a useCurrentUser hook to determine whether the current user is authenticated, and to obtain various details about the user such as profile image, display name and the stories of the user.
+
 ## Testing
 
 ### Manual testing
@@ -196,6 +220,11 @@ I have many ideas how Stories of the World can be improved by adding features in
 ### Validator testing
 
 ### W3C CSS validator
+
+The deployed website was passed through the W3C validator without errors. There were, however, lots of warnings regarding Bootstrap. This is a common problem and will be ignored in this case.
+<details><summary>W3C Css Validation</summary>
+<img src="readme_assets/testing_css.PNG">
+</details>
 
 ### ESLint JavaScript validator
 
