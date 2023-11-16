@@ -10,6 +10,7 @@ import {axiosRes} from "../../api/axiosDefaults";
 import {useCurrentUser, useSetCurrentUser}
   from "../../contexts/CurrentUserContext";
 import appStyles from "../../App.module.css";
+import Buttons from "../../styles/Button.module.css";
 
 const UsernameForm = () => {
     const [username, setUsername] = useState("");
@@ -66,12 +67,12 @@ const UsernameForm = () => {
                                 {message} </Alert>
                         ))
                     }
-                        <Button onClick={
-                            () => history.goBack()
-                        }>
+                        <Button
+                            className={Buttons.buttonDark}
+                            onClick={() => history.goBack()}>
                             cancel
                         </Button>
-                        <Button type="submit">
+                        <Button className={Buttons.buttonDark} type="submit">
                             save
                         </Button>
                     </Form>

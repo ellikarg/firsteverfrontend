@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef} from "react";
 import {useHistory, useParams} from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Buttons from "../../styles/Button.module.css";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -90,12 +91,12 @@ const ProfileEditForm = () => {
                     {message} </Alert>
             ))
         }
-            <Button onClick={
-                () => history.goBack()
-            }>
+            <Button
+                className={Buttons.buttonDark}
+                onClick={() => history.goBack()}>
                 cancel
             </Button>
-            <Button type="submit">
+            <Button className={Buttons.buttonDark} type="submit">
                 save
             </Button>
         </>

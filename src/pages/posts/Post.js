@@ -130,7 +130,7 @@ const Post = (props) => {
                         {owner}
                     </Link>
                     <div className='d-flex align-items-center'>
-                        <span>{updated_at}</span>
+                        <span className={styles.Date}>{updated_at}</span>
                         {is_owner && postPage &&
                             <MoreDropdown
                                 handleEdit={handleEdit}

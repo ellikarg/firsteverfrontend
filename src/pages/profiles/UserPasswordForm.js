@@ -9,6 +9,8 @@ import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import appStyles from "../../App.module.css";
+import Buttons from "../../styles/Button.module.css";
+
 
 const UserPasswordForm = () => {
   const history = useHistory();
@@ -84,13 +86,11 @@ const UserPasswordForm = () => {
               </Alert>
             ))}
             <Button
-              onClick={() => history.goBack()}
-            >
+              className={Buttons.buttonDark}
+              onClick={() => history.goBack()}>
               cancel
             </Button>
-            <Button
-              type="submit"
-            >
+            <Button className={Buttons.buttonDark} type="submit">
               save
             </Button>
           </Form>
