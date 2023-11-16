@@ -1,10 +1,14 @@
 .App {
     font-family: 'Quicksand', sans-serif;
+    display: flex;
     min-height: 100vh;
+    flex-direction: column;
 }
 
 .Main {
     padding-top: 120px;
+    padding-bottom: 20px;
+    flex: 1;
 }
 
 .Image {

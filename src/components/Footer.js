@@ -3,9 +3,9 @@ import styles from '../styles/Footer.module.css';
 
 const Footer = () => {
   return (
-    <footer className={styles.FooterContainer}>
-        <div className={styles.FooterContent}>© 2021 Copyright: Elisabeth Karg</div>
-    </footer>
+    <div className={`${styles.FooterContainer}`}>
+        <div className={styles.FooterContent}>© 2023 Copyright: Elisabeth Karg</div>
+    </div>
   )
 }
 
