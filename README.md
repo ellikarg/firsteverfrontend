@@ -1,8 +1,10 @@
 # Stories of the World
 
+<img src="readme_assets/amiresponsive_stories.PNG" height=400>
+
 ## Project goals
 
-Stories of the World is a social media platform designed to share stories of any kind: invented stories, stories a user experienced while traveling, myths that the user listened to in her own or in another country, legends about historical characters or childrens' stories - and all of them from all around the world. <br><br>The focus is on the text instead of the images like on other social media platforms, however, for aestetic purposes, each story is accompanied by any kind of image (photo/drawing/etc.). Users will be able to like a story, to look at all stories from one specific storyteller and to follow a storyteller they especially like. Also they will be able to comment on stories from other storytellers.
+Stories of the World is a social media platform designed to share stories of any kind: invented stories, stories a user experienced while traveling, myths that the user listened to in her own or in another country, legends about historical characters or childrens' stories - and all of them from all around the world. <br><br>The real focus is on the text instead of the images like on other social media platforms, however, for aestetic purposes, each story is accompanied by any kind of image (photo/drawing/etc.). Users will be able to like a story, to look at all stories from one specific storyteller and to follow a storyteller they especially like. Also they will be able to comment on stories from other storytellers.
 <br><br>
 Enough of talking, let's collect stories!
 
@@ -68,7 +70,7 @@ NAVIGATION:<br>
 <br><br>CONTENT CREATION:<br><br>
 9. Create stories: As a logged in user I can create stories (posts) so that I can share my stories with the other users
 10. Like stories: As a logged in user I can like a story so that I can show my support for the stories that interest me
-11. Edit story: As a story owner I can edit my story title, description and content so that I can make corrections or update my story after it was created
+11. Edit story: As a story owner I can edit my story title, description, content and the category so that I can make corrections or update my story after it was created
 12. Create a comment: As a logged in user I can add comments to a story so that I can share my thoughts about the story
 13. Delete comments: As an owner of a comment I can delete my comment so that I can control removal of my comment from the application
 14. Edit a comment: As an owner of a comment I can edit my comment so that I can fix or update my existing comment
@@ -87,11 +89,12 @@ NAVIGATION:<br>
 26. Profile page: As a user I can view other users profiles so that I can see all of their stories and can follow them
 27. User profile - user stats: As a user I can view statistics about a specific user: number of stories, follows and users followed so that I can learn about them
 28. View all stories by a specific user: As a user I can view all the stories by a specific user so that I can catch up on their latest posts, or decide if I want to follow them
+29. Filter stories by category: As a user I can filter all the stories assigned to a specific category so that I can read through stories of a similar type
 
 ## Agile development methodology
 GitHub issues and projects were used to document and track an agile development approach. A GitHub issue was created for each user story, with labels if the user story belongs to the "must-haves", "should-haves" or "nice-to-haves". GitHub milestones were created to represent the epics.
 
-A project kanban board was used to track progress, with user stories moved between 'Todo', 'In Progress' and 'Done' columns as appropriate.
+A project kanban board was used to track the progress, with user stories moved between 'Todo', 'In Progress' and 'Done' columns as appropriate.
 
 <img src="readme_assets/user_stories.PNG" height=300>
 
@@ -107,30 +110,65 @@ The project board in its final form can be accessed at [Stories of the World Git
 
 ### Data models
 
+The logic of the project uses 7 models, that are connected with each other. An overview of the models and their relation to each other can be found in the diagram below.
+<details><summary>Data Models</summary>
+<img src="readme_assets/models_stories.PNG">
+</details>
+
 ## Design
 
 ### Colours
 
-### Fonts
+The below colour palette was chosen very intuitively to achieve a clean and yet colourful look, with soft colours and strong contrasts for accessibility reasons. The colour palette was defined with [Coolors](https://coolors.co).
+
+<details><summary>Colour palette</summary>
+<img src="readme_assets/Colorpalette.png">
+</details>
+
+### Typography
+
+Google Fonts was used to import the chosen fonts for use in the site.
+
+I chose to use Quicksand, which belongs to the sans-serif font family and fits very well to the images and content of the page. I first included the light 300 weigh in order to make it look soft and a little bit playful but then decided to go for the weigh of 400 in oder to succeed in the page being accessiblity friendly and well to read by dyslexic users.
+
+<details><summary>Font used</summary>
+<img src="readme_assets/fonts_stories.PNG">
+</details>
 
 ## Features
 
+
+
 ### CRUD functionality
 
+Stories of the World features full Create, Read, Update and Delete functionality, via the UI implemented in React and the Django Rest Framework API.
+
+Create - firts-time users can register a new user account. A soon as they are logged-in, they can create stories (posts) and comments, they can like stories and follow other storytellers (users).
+Read - authenticated users can view posts, their own and those of others. They can check out the comments and directly see how many likes a story has by the little heart symbol on each story card.
+Update - authenticated users can update their profile, their stories, their comments and of course like and unlike stories & follow and unfollow other storytellers.
+Delete - authenticated users can delete their stories, as well as their comments and profile.
+
 ### Future improvements and features
+
+I have many ideas how Stories of the World can be improved by adding features in the future:
+- a sidebar fetching the stories from the same category when a single post is being viewed
+- a location tag for each story to locate where it plays/has played
+- a map of the world showing little pins for each location a story plays or is added
+- a filter for categories based on the length of the story
+- many more....
 
 <a name="technologies-used"></a>
 ## Technologies Used
 
 <a name="frameworks--libraries-and-dependencies"></a>
 ### Frameworks, libraries and dependencies
-- [react-router-dom](https://www.npmjs.com/package/react-router-dom) - this library enables 'client side routing' for React web applications, and is used to implement basic routing in TribeHub, i.e. to implement the links on the bottom navbar, and register, sign-in and sign-out links. Using React-Router-DOM also enabled implementation of 'single page mode'to enhance the experience for users on larger screens. The `useSinglePage` custom hook is referenced in `App.js`, with different `Route` components conditionally rendered for the various paths depending on whether the app is running in single page mode. The `useLocation` hook from React-Router-DOM is used in some components to determine the current URL and respond accordingly, for example by ensuring the correct nav button is highlighted in the bottom navbar for mobile users.
-- [react-dom](https://reactjs.org/docs/react-dom.html) - react-dom is used to manipulate the DOM outside of a specific component, and supports the user experience by enabling modal dialogs to be appended to the top level of the DOM (important for accessability) and alerts to be appended to specific components. For example, notifications are fetched by the NotificationsMenu component, but this takes the form of a dropdown menu, so using ReactDOM allows the component to 'reach out' into the DOM and display error alerts in a more obvious location than inside the dropdown.
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom) - this library enables 'client side routing' for React web applications, and is used to implement basic routing in Stories of the World, i.e. to allow routing by the register, sign-in and sign-out links. The `useLocation` hook from React-Router-DOM is used in some components to determine the current URL and respond accordingly, for example by ensuring the correct nav button is highlighted in the bottom navbar for mobile users.
+- [react-dom](https://reactjs.org/docs/react-dom.html) - react-dom is used to render the App Component within a CurrentUser- and ProfileDataProvider Component.
 - [Axios](https://www.npmjs.com/package/axios) - the axios library was chosen to simplify making HTTP requests to the REST API (e.g. not having to manually configure HTTP headers), and because it enables simple implementation of 'interceptors' which are used to request a refresh token in the event of a HTTP 401 error. This enhances the user experience beacuse an authenticated user remains signed in for up to 24 hours, rather than having to sign in again after five minutes.
-- [jwt-decode](https://www.npmjs.com/package/jwt-decode) - used to decode Base64URL encoded JSON web tokens.
-- [TailwindCSS](https://tailwindcss.com/) - TailwindCSS was chosen partly in order to gain experience with an alternative to Bootstrap, and for its flexibility and quality of documentation.
-- [daisyUI](https://daisyui.com/) - this CSS component library is a TailwindCSS plugin, specifically chosen because of the 'bottom navigation' component which allowed quick implementation of a mobile-app style navbar at the bottom of the screen to provide a high quality mobile first user experience, and it's simple customisable colour theme functionality which enables a website to be built with a small number of colours represented by semantic CSS classes. This was well suited to TribeHub, which only requires a small number of colours with an emphasis on easy identification of UI elements. DaisyUI also supports specific dark mode themes, and although not a primary reason for choosing this library, the feature was utilised for an additional 'quick win' in terms of user experience.
-- [React Bootstrap Icons](https://www.npmjs.com/package/react-bootstrap-icons) - this icon library was selected for the high quality and simplicity of the icons, and easy integration with React.
+- [jwt-decode](https://www.npmjs.com/package/jwt-decode) - used for a token refresh fix.
+- [React Bootstrap](https://www.npmjs.com/package/react-bootstrap) - this library was selected for the simplicity of inserting responsive components, such as cards or authentication pages, and its easy integration with React.
+- [React Infinite Scroll Component](https://www.npmjs.com/package/react-infinite-scroll-component) - used for loading only a certain amount of stories that the user can scroll through before loading again when she reaches the end of the page. This is good UX since the user does not have to click "next page" in order to view older stories (posts).
+- [React Masonry CSS](https://www.npmjs.com/package/react-masonry-css) - used to achieve the layout that uses the space maximally without leaving blank spaces between the story-cards, when one description is longer than another. This results in a masonry layout that I find very fitting for the purpose of the website.
 
 <a name="other-technologies"></a>
 ### Other Technologies
@@ -167,7 +205,18 @@ The project board in its final form can be accessed at [Stories of the World Git
 
 ### Resolved bugs
 
+| No | Bug | How I solved the issue |
+| :--- | :--- | :--- |
+| 1 | Collapsable Bootstrap Navbar did not work | import "bootstrap/js/src/collapse.js"; in the NavBar.js file |
+| 2 | Image Upload had an automatically created input form underneath the upload area |  add to App.module.css: input[type="file"] {display: none;} |
+| 3 | Category field displayd the id instead of the name in the story-card (Post.js) | Making a category_name field in the serializer of the Post model in the backend and then importing directly category_name |
+| 4 | Category was saved to the backend as a string when creating a post | using value={c.id} as a property of the option-tag inside the dropdown for the categories (PostCreateForm.js & PostEditForm.js) |
+
 ### Unresolved bugs
+
+| No | Bug | 
+| :--- | :--- |
+| 1 | The process of registration seems to be faulty on some ios devices. No such problems were encoutered with android or windows. |
 
 ## Deployment
 To deploy to Heroku, follow these steps:
@@ -190,8 +239,13 @@ When deployment is complete, you will be given a link to the deployed site.
 ## Credits
 
 ### Code
-- for including the Quill Editor I used the official Quill documentation
+- Inspiration by the Moments Walkthrough of CodeInstitute
+- Setting up the category model: [LogRocket Article](https://blog.logrocket.com/use-django-rest-framework-to-build-a-blog/)
+- Filtering for categories: [freeCodeCamp Article](https://www.freecodecamp.org/news/how-to-make-a-filter-component-in-react/)
+- Blueprint for README-file: [Readme of Tribehub](https://github.com/andy-guttridge/tribehub_react/blob/main/README.md)
 
 ### Media
-- Post of Besouro Preto de Mangangá: Text (https://papoeira.com/en/who-was-besouro-preto-de-manganga/), Image (https://br.freepik.com/vetores-gratis/mao-desenhada-de-besouro-preto-scutellated_3132785.htm)
-- Testimages for Testposts: https://pixabay.com/photos/forest-trees-sun-rays-sunlight-fog-1072828/
+- Story of Besouro Preto de Mangangá: [Text](https://papoeira.com/en/who-was-besouro-preto-de-manganga/), [Image](https://br.freepik.com/vetores-gratis/mao-desenhada-de-besouro-preto-scutellated_3132785.htm)
+- Testimages for Testposts: [Test images]https://pixabay.com/photos/forest-trees-sun-rays-sunlight-fog-1072828/
+- Story of Fuji-san: [Text](https://fairytale.fandom.com/wiki/Princess_Kaguya_and_the_Tale_of_the_Bamboo_Cutter), Image owned by myself
+- Story of Kecak: [Text](https://raganebalitour.com/kecak-and-fire-dance-bali-the-story-behind-the-famous-epic/#Kecak_and_Fire_Dance_Bali_The_Story_Behind_the_Famous_Epic), Image owned by myself
