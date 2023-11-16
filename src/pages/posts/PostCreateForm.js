@@ -16,8 +16,8 @@ import {useRedirect} from "../../hooks/useRedirect";
 
 function PostCreateForm() {
     useRedirect('loggedOut');
-    const [errors, setErrors] = useState({});
 
+    const [errors, setErrors] = useState({});
     const [postData, setPostData] = useState({
         title: "",
         description: "",
@@ -25,19 +25,15 @@ function PostCreateForm() {
         image: "",
         category: ""
     });
-
     const {
         title,
         description,
         image,
         content,
-        category
+        category,
     } = postData;
-
     const imageInput = useRef(null);
-
     const history = useHistory();
-
     const [cats, setCats] = useState([]);
 
     useEffect(() => {
@@ -86,8 +82,8 @@ function PostCreateForm() {
             }`);
         } catch (err) {
             console.log(err);
-            if (err.response ?. status !== 401) {
-                setErrors(err.response ?. data);
+            if (err.response?.status !== 401) {
+                setErrors(err.response?.data);
             }
         }
     };
@@ -101,7 +97,7 @@ function PostCreateForm() {
                     onChange={handleChange}/>
             </Form.Group>
 
-            {errors ?. title ?. map((message, idx) => (
+            {errors?.title?.map((message, idx) => (
                 <Alert variant="warning"
                     key={idx}>
                     {message}</Alert>
@@ -114,7 +110,7 @@ function PostCreateForm() {
                     onChange={handleChange}/>
             </Form.Group>
 
-            {errors ?. description ?. map((message, idx) => (
+            {errors?.description?.map((message, idx) => (
                 <Alert variant="warning"
                     key={idx}>
                     {message}</Alert>
@@ -132,7 +128,7 @@ function PostCreateForm() {
                 </Form.Control>
             </Form.Group>
 
-            {errors ?. content ?. map((message, idx) => (
+            {errors?.content?.map((message, idx) => (
                 <Alert variant="warning"
                     key={idx}>
                     {message}</Alert>
@@ -158,7 +154,7 @@ function PostCreateForm() {
                 </Form.Control>
             </Form.Group>
 
-            {errors ?. category ?. map((message, idx) => (
+            {errors?.category?.map((message, idx) => (
                 <Alert variant="warning"
                     key={idx}>
                     {message}</Alert>
@@ -181,8 +177,7 @@ function PostCreateForm() {
                     md={5}>
                     <Container className={
                         `${appStyles.Content} ${styles.Container} 
-                        d-flex flex-column justify-content-center`
-                    }>
+                        d-flex flex-column justify-content-center`}>
                         <Form.Group className="text-center">
                             {image ? (
                                 <>
@@ -200,9 +195,12 @@ function PostCreateForm() {
                                     </div>
                                 </>
                             ) : (
-                                <Form.Label className="d-flex justify-content-center" htmlFor="image-upload">
+                                <Form.Label
+                                    className="d-flex justify-content-center"
+                                    htmlFor="image-upload">
                                     <Asset src={Upload}
-                                        message="Click or tap to upload an image"/>
+                                      message="Click or tap to upload an image"
+                                    />
                                 </Form.Label>
                             )}
 
@@ -213,7 +211,7 @@ function PostCreateForm() {
                                 ref={imageInput}/>
                         </Form.Group>
 
-                        {errors ?. image ?. map((message, idx) => (
+                        {errors?.image?.map((message, idx) => (
                             <Alert variant="warning"
                                 key={idx}>
                                 {message}</Alert>
