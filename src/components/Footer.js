@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from '../styles/Footer.module.css';
 
+
+// Footer that sticks at the bottom all pages
 const Footer = () => {
   return (
     <div className={`${styles.FooterContainer}`}>

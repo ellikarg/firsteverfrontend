@@ -12,11 +12,12 @@ import axios from 'axios';
 import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
 import { removeTokenTimestamp } from '../utils/utils';
 
+
+// Navbar Component with logged in and logged out items
 const NavBar = () => {
 
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
-
     const {expanded, setExpanded, ref} = useClickOutsideToggle();
 
     const handleSignOut = async () => {
@@ -29,6 +30,7 @@ const NavBar = () => {
         }
     };
 
+    // Item to create a new Post
     const addPostIcon = (
         <NavLink to="/posts/create"
             className={styles.NavLink}
@@ -38,6 +40,7 @@ const NavBar = () => {
         </NavLink>
     )
 
+    // definition of all icons that are displayed when user is logged in
     const loggedInIcons =
         <div>
             <NavLink to="/feed"
@@ -62,6 +65,7 @@ const NavBar = () => {
             </NavLink>
         </div>
 
+    // definition of all icons that are displayed when user is logged out
     const loggedOutIcons = 
         <>
             <NavLink to="/signin"
