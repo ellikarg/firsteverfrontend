@@ -8,6 +8,8 @@ import {MoreDropdown} from '../../components/MoreDropdown';
 import {axiosRes} from '../../api/axiosDefaults';
 import CommentEditForm from "./CommentEditForm";
 
+
+// function to handle the deletion of comments
 const Comment = (props) => {
     const {
         profile_id,
@@ -21,7 +23,6 @@ const Comment = (props) => {
     } = props;
 
     const [showEditForm, setShowEditForm] = useState(false);
-
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
 

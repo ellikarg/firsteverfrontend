@@ -13,6 +13,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Assets";
 import {fetchMoreData} from "../../utils/utils";
 
+
+// Page showing one single post
 function PostPage() {
 
     const {id} = useParams();
@@ -60,7 +62,11 @@ function PostPage() {
                     ) : comments.results.length ? ("Comments") : null
                     }
                     {comments.results.length ? (
-                        <InfiniteScroll 
+                        <InfiniteScroll
+                            dataLength={comments.results.length}
+                            loader={<Asset spinner/>}
+                            hasMore={!!comments.next}
+                            next={() => fetchMoreData(comments, setComments)}>
                             children={
                                 comments.results.map((comment) => (
                                     <Comment
@@ -70,10 +76,7 @@ function PostPage() {
                                         setComments={setComments}/>
                                 ))
                             }
-                            dataLength={comments.results.length}
-                            loader={<Asset spinner/>}
-                            hasMore={!!comments.next}
-                            next={() => fetchMoreData(comments, setComments)}/>
+                        </InfiniteScroll>
                     ) : currentUser ? (
                         <span>No comments yet, be the first to comment!</span>
                     ) : (

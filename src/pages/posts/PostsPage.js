@@ -17,6 +17,7 @@ import {useCurrentUser} from "../../contexts/CurrentUserContext";
 import Masonry from 'react-masonry-css';
 
 
+// page fetching and showing all the posts from the API
 function PostsPage({
     message,
     filter = ""

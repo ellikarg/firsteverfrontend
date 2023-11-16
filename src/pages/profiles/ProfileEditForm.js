@@ -12,6 +12,8 @@ import {axiosReq} from "../../api/axiosDefaults";
 import {useCurrentUser, useSetCurrentUser} from "../../contexts/CurrentUserContext";
 import appStyles from "../../App.module.css";
 
+
+// Form for edition of profile
 const ProfileEditForm = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();

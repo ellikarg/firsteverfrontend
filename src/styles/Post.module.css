@@ -1,3 +1,4 @@
+/* Heading and description as links on the post card */
 .CardLink {
   color: #471323;
 }
@@ -8,12 +9,9 @@
   cursor: pointer;
 }
 
+/* containing the image of the card with like-symbol */
 .Container {
   position: relative;
-}
-
-.CardItems {
-  padding: 10px;
 }
 
 .Likes {
@@ -49,6 +47,12 @@
   color: #E58F65;
 }
 
+/* heading, description, comment for the card */
+.CardItems {
+  padding: 10px;
+}
+
+/* last updated date */
 .Date {
   padding-right: 10px;
 }

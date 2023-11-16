@@ -14,6 +14,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { useRedirect } from "../../hooks/useRedirect";
 
 
+// Form for edition of posts
 function PostEditForm() {
     useRedirect('loggedOut');
 
@@ -58,6 +59,7 @@ function PostEditForm() {
         }
         handleMount();
 
+        // retrieving the categories from the API
         const getCats = async () => {
             try {
                 const res = await axiosReq.get("/categories");

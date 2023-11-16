@@ -1,3 +1,4 @@
+/* General settings */
 .App {
     font-family: 'Quicksand', sans-serif;
     display: flex;
@@ -5,22 +6,26 @@
     flex-direction: column;
 }
 
+/* Styling for main part of page (w/o header & footer) */
 .Main {
     padding-top: 120px;
     padding-bottom: 20px;
     flex: 1;
 }
 
+/* Styling for images */
 .Image {
     max-height: 350px;
     max-width: 100%;
     object-fit: cover;
 }
 
+/* Styling for input fields of forms */
 input[type="file"] {
     display: none;
 }
 
+/* Styling for Forms and Container for main part of pages */
 .Content {
     background-color: #ffffff;
     padding: 10px;

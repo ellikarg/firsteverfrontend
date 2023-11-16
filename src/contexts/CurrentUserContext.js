@@ -5,9 +5,9 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { removeTokenTimestamp, shouldRefreshToken } from '../utils/utils';
 
 
+// hook to determine if user is authenticated
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
-
 export const useCurrentUser = () => useContext(CurrentUserContext);
 export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
 

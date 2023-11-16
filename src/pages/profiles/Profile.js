@@ -5,16 +5,16 @@ import {Link} from 'react-router-dom/cjs/react-router-dom.min';
 import Avatar from '../../components/Avatar'
 import {useSetProfileData} from '../../contexts/ProfileDataContext';
 
+
+// Profile card with follow/unfollow button
 const Profile = (props) => {
     const {
         profile,
         imageSize = 55
     } = props;
     const {id, following_id, image, owner} = profile;
-
     const currentUser = useCurrentUser();
     const is_owner = currentUser ?. username === owner;
-
     const {handleFollow, handleUnfollow} = useSetProfileData();
 
     return (

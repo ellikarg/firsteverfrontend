@@ -12,6 +12,8 @@ import {useCurrentUser, useSetCurrentUser}
 import appStyles from "../../App.module.css";
 import Buttons from "../../styles/Button.module.css";
 
+
+// Form for changing the name of the user's profile
 const UsernameForm = () => {
     const [username, setUsername] = useState("");
     const [errors, setErrors] = useState({});

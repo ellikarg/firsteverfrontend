@@ -2,6 +2,8 @@ import React, {createContext, useContext, useState} from "react";
 import {axiosRes} from "../api/axiosDefaults";
 import { followHelper, unfollowHelper } from "../utils/utils";
 
+
+// hook used to obtain details about the current user
 const ProfileDataContext = createContext();
 const SetProfileDataContext = createContext();
 

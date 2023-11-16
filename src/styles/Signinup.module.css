@@ -1,3 +1,4 @@
+/* div for forms */
 .auth {
     display: flex;
     flex-direction: column;
@@ -8,6 +9,7 @@
     object-fit: scale-down;
 }
 
+/* Forms */
 .auth h1 {
     color: #fcfffc;
     margin: 10px 10px 5px 10px;

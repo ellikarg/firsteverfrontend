@@ -8,19 +8,18 @@ import {useRedirect} from '../../hooks/useRedirect';
 import {Link} from 'react-router-dom/cjs/react-router-dom.min';
 
 
+// Function to handle the sign up form
 const SignUpForm = () => {
     useRedirect('loggedIn')
 
     const [signUpData, setSignUpData] = useState(
       {username: "", password1: "", password2: ""}
     );
-
     const {username, password1, password2} = signUpData;
-
     const [errors, setErrors] = useState({});
-
     const history = useHistory();
 
+    // arrow function to handle data input
     const handleChange = (event) => {
         setSignUpData({
             ...signUpData,
@@ -28,6 +27,7 @@ const SignUpForm = () => {
         });
     };
 
+    // arrow function to handle the signup button
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {

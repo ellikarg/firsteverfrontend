@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
+
+// hook to achieve user-friendly behaviour of toggler
 const useClickOutsideToggle = () => {
     const [expanded, setExpanded] = useState(false);
     const ref = useRef(null);

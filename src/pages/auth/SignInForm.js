@@ -9,6 +9,8 @@ import {useRedirect} from '../../hooks/useRedirect';
 import {setTokenTimestamp} from '../../utils/utils';
 import {Link} from 'react-router-dom/cjs/react-router-dom.min';
 
+
+// Function to handle the sign in form
 function SignInForm() {
 
     const setCurrentUser = useSetCurrentUser();
@@ -18,6 +20,7 @@ function SignInForm() {
     const [errors, setErrors] = useState({});
     const history = useHistory();
 
+    // arrow function to handle data input
     const handleChange = (event) => {
         setSignInData({
             ...signInData,
@@ -25,6 +28,7 @@ function SignInForm() {
         });
     };
 
+    // arrow function to handle the signin button
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -88,7 +92,7 @@ function SignInForm() {
                             Sign in
                         </Button>
                         <p>
-                            You don't have an account yet?<br/>
+                            You don&apos;t have an account yet?<br/>
                             <Link to="/signup">Register here</Link>
                         </p>
                     </Form>

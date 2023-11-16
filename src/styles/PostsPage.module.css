@@ -1,3 +1,4 @@
+/* Search Bar */
 .SearchBar input {
   border-radius: 20px;
   color: #242a3d;
@@ -17,6 +18,7 @@
   color: #cfced3;
 }
 
+/* Main part of the page: posts and categories */
 .PostsContent {
   display: flex;
   flex-direction: row-reverse;
@@ -43,6 +45,7 @@
   align-items: center;
 }
 
+/* Masonry Layout */
 .MyMasonryGrid {
   display: -webkit-box; /* Not needed if autoprefixing */
   display: -ms-flexbox; /* Not needed if autoprefixing */
@@ -56,10 +59,11 @@
   background-clip: padding-box;
 }
 
-.MyMasonryGridColumn > div { /* change div to reference your elements you put in <Masonry> */
+.MyMasonryGridColumn > div {
   margin-bottom: 30px;
 }
 
+/* Media Queries */
 @media screen and (max-width:768px) {
   .Catflex {
     display: flex;

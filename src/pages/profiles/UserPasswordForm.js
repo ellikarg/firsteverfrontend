@@ -12,6 +12,7 @@ import appStyles from "../../App.module.css";
 import Buttons from "../../styles/Button.module.css";
 
 
+// form for changing the password of the user's profile
 const UserPasswordForm = () => {
   const history = useHistory();
   const { id } = useParams();

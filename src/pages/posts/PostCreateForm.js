@@ -14,6 +14,8 @@ import {useHistory} from "react-router-dom/cjs/react-router-dom.min";
 import {axiosReq} from "../../api/axiosDefaults";
 import {useRedirect} from "../../hooks/useRedirect";
 
+
+// Form for creating a new post
 function PostCreateForm() {
     useRedirect('loggedOut');
 
@@ -36,6 +38,7 @@ function PostCreateForm() {
     const history = useHistory();
     const [cats, setCats] = useState([]);
 
+    // retrieving the categories from the API
     useEffect(() => {
         const getCats = async () => {
             try {
@@ -65,7 +68,7 @@ function PostCreateForm() {
         }
     };
 
-    const handleSubmit = async (event, cats) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
 

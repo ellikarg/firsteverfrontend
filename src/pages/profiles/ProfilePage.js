@@ -17,6 +17,8 @@ import NoResults from "../../assets/no_results.PNG"
 import Post from "../posts/Post";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
+
+// Profile page for getting to profileEditForm & viewing belonging posts
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
@@ -25,9 +27,9 @@ function ProfilePage() {
   const {pageProfile} = useProfileData();
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
-
   const [profilePosts, setProfilePosts] = useState({ results: [] });
 
+  // fetching data about the user from the API
   useEffect(() => {
     const fetchData = async () => {
         try {
@@ -95,18 +97,19 @@ function ProfilePage() {
   const mainProfilePosts = (
     <>
       <hr />
-      <p className="text-center">{profile?.owner}'s posts</p>
+      <p className="text-center">{profile?.owner}&apos;s posts</p>
       <hr />
       {profilePosts.results.length ? (
         <InfiniteScroll
-          children={profilePosts.results.map((post) => (
-            <Post key = {post.id} {...post} setPosts={setProfilePosts} />
-          ))}
           dataLength={profilePosts.results.length}
           loader={<Asset spinner />}
           hasMore={!!profilePosts.next}
           next={() => fetchMoreData(profilePosts, setProfilePosts)}
-        />
+        >
+          children={profilePosts.results.map((post) => (
+            <Post key = {post.id} {...post} setPosts={setProfilePosts} />
+          ))}
+        </InfiniteScroll>
       ) : (
         <Asset
             scr={NoResults}

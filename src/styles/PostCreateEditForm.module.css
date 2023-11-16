@@ -1,12 +1,4 @@
+/* Container for image upload / change */
 .Container {
   min-height: 200px;
-}
-
-.EditorContainer {
-  min-height: 200px;
-  overflow: scroll;
-}
-
-.EditorQuill {
-  height: 60%;
 }

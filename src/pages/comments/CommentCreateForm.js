@@ -8,6 +8,8 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import {axiosRes} from "../../api/axiosDefaults";
 
+
+// Function to handle the creation of comments
 function CommentCreateForm(props) {
     const {
         post,

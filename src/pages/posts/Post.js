@@ -8,6 +8,8 @@ import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosRes } from '../../api/axiosDefaults';
 import { MoreDropdown } from '../../components/MoreDropdown';
 
+
+// Post element (card), used for PostPage PostsPage
 const Post = (props) => {
 
     const {
@@ -43,7 +45,7 @@ const Post = (props) => {
             history.goBack();
         } catch(err){
             console.log(err)
-        };
+        }
     };
 
     const handleLike = async () => {
@@ -95,7 +97,7 @@ const Post = (props) => {
                                 placement='top'
                                 overlay=
                                 {<Tooltip>
-                                    You can't like your own post!
+                                    You can&apos;t like your own post!
                                 </Tooltip>}>
                                 <i className="far fa-heart" />
                             </OverlayTrigger>
