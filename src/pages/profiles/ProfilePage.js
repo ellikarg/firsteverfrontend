@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from "react";
-
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
 import Asset from "../../components/Assets";
-
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
-
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
-import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext"
+import { useProfileData, useSetProfileData }
+from "../../contexts/ProfileDataContext"
 import { Button, Image } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {fetchMoreData} from "../../utils/utils"
 import NoResults from "../../assets/no_results.PNG"
 import Post from "../posts/Post";
-
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
 function ProfilePage() {
@@ -112,7 +108,10 @@ function ProfilePage() {
           next={() => fetchMoreData(profilePosts, setProfilePosts)}
         />
       ) : (
-        <Asset scr={NoResults} message={`No results found, ${profile?.owner} hasn't posted yet.`} />
+        <Asset
+            scr={NoResults}
+            message={`No results found, ${profile?.owner} hasn't posted yet.`}
+        />
       )}
     </>
   );

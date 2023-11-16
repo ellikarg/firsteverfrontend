@@ -94,7 +94,9 @@ const Post = (props) => {
                             <OverlayTrigger
                                 placement='top'
                                 overlay=
-                                {<Tooltip>You can't like your own post!</Tooltip>}>
+                                {<Tooltip>
+                                    You can't like your own post!
+                                </Tooltip>}>
                                 <i className="far fa-heart" />
                             </OverlayTrigger>
                         ) : like_id ? (
@@ -138,32 +140,51 @@ const Post = (props) => {
                 </Media>
             </Card.Body>}
             <Card.Body className='text-center'>
-                    {postPage && <>
+                    {postPage &&
+                    <>
                         {title && 
-                            <Card.Title className={styles.CardItems}>{title}</Card.Title>}
-                        {description && <Card.Subtitle
-                            className="mb-2 text-muted">{description}</Card.Subtitle>}
-                        {content && <Card.Text className={styles.CardItems}>{content}</Card.Text>}
+                            <Card.Title
+                                className={styles.CardItems}>
+                                    {title}
+                            </Card.Title>}
+                        {description &&
+                            <Card.Subtitle
+                                className="mb-2 text-muted">
+                                    {description}
+                            </Card.Subtitle>}
+                        {content &&
+                            <Card.Text
+                                className={styles.CardItems}>
+                                    {content}
+                            </Card.Text>}
                         <i className="fa-solid fa-feather"></i>
                     </>
                     }
-                    {postsPage && <>
-                    <Link to={`/posts/${id}`} className={styles.CardLink}>
-                        {title && 
-                            <Card.Title>{title}</Card.Title>}
-                        {description && <Card.Subtitle
-                            className="mb-2 text-muted">{description}</Card.Subtitle>}
-                    </Link>
-                    <Link to={`/posts/${id}`} className={styles.CardLink}>
-                        <i className="fa-solid fa-feather"></i>
-                    </Link></>
+                    {postsPage &&
+                    <>
+                        <Link to={`/posts/${id}`} className={styles.CardLink}>
+                            {title && 
+                                <Card.Title>{title}</Card.Title>}
+                            {description &&
+                            <Card.Subtitle
+                                className="mb-2 text-muted">
+                                    {description}
+                            </Card.Subtitle>}
+                        </Link>
+                        <Link to={`/posts/${id}`} className={styles.CardLink}>
+                            <i className="fa-solid fa-feather"></i>
+                        </Link>
+                    </>
                     }
                     {comments_count}
                     {category_name === null? (
                         <p>No category yet</p>
                     ) : (
-                        <p className={styles.CardItems}>Category: {category_name}</p>
-                    ) }
+                        <p 
+                            className={styles.CardItems}>
+                                Category: {category_name}
+                        </p>
+                    )}
             </Card.Body>
         </Card>
         </>
