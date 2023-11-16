@@ -19,7 +19,7 @@ function PostPage() {
     const [post, setPost] = useState({results: []});
 
     const currentUser = useCurrentUser();
-    const profile_image = currentUser ?. profile_image;
+    const profile_image = currentUser?.profile_image;
     const [comments, setComments] = useState({results: []});
 
     useEffect(() => {

@@ -34,7 +34,7 @@ const SignUpForm = () => {
             await axios.post("/dj-rest-auth/registration/", signUpData);
             history.push("/signin");
         } catch (err) {
-            setErrors(err.response ?. data);
+            setErrors(err.response?.data);
         }
     };
 
@@ -55,7 +55,7 @@ const SignUpForm = () => {
                             onChange={handleChange}/>
                     </Form.Group>
 
-                    {errors.username ?. map((message, idx) => (
+                    {errors.username?.map((message, idx) => (
                         <Alert variant="warning"
                             key={idx}>
                             {message} </Alert>
@@ -71,7 +71,7 @@ const SignUpForm = () => {
                             onChange={handleChange}/>
                     </Form.Group>
 
-                    {errors.password1 ?. map((message, idx) => (
+                    {errors.password1?.map((message, idx) => (
                         <Alert variant="warning"
                             key={idx}>
                             {message} </Alert>
@@ -87,13 +87,13 @@ const SignUpForm = () => {
                             onChange={handleChange}/>
                     </Form.Group>
 
-                    {errors.password2 ?. map((message, idx) => (
+                    {errors.password2?.map((message, idx) => (
                         <Alert variant="warning"
                             key={idx}>
                             {message} </Alert>
                     ))}
 
-                    {errors.non_field_errors ?. map((message, idx) => (
+                    {errors.non_field_errors?.map((message, idx) => (
                         <Alert key={idx}
                             variant="warning"
                             className="mt-3">

@@ -25,7 +25,7 @@ const ProfileEditForm = () => {
 
     useEffect(() => {
         const handleMount = async () => {
-            if (currentUser ?. profile_id ?. toString() === id) {
+            if (currentUser?.profile_id?.toString() === id) {
                 try {
                     const {data} = await axiosReq.get(`/profiles/${id}/`);
                     const {name, content, image} = data;
@@ -55,20 +55,20 @@ const ProfileEditForm = () => {
         formData.append("name", name);
         formData.append("content", content);
 
-        if (imageFile ?. current ?. files[0]) {
-            formData.append("image", imageFile ?. current ?. files[0]);
+        if (imageFile?.current?.files[0]) {
+            formData.append("image", imageFile?.current?.files[0]);
         }
 
         try {
             const {data} = await axiosReq.put(`/profiles/${id}/`, formData);
             setCurrentUser((currentUser) => ({
-                ... currentUser,
+                ...currentUser,
                 profile_image: data.image
             }));
             history.goBack();
         } catch (err) {
             console.log(err);
-            setErrors(err.response ?. data);
+            setErrors(err.response?.data);
         }
     };
 
@@ -84,7 +84,7 @@ const ProfileEditForm = () => {
             </Form.Group>
 
             {
-            errors ?. content ?. map((message, idx) => (
+            errors?.content?.map((message, idx) => (
                 <Alert variant="warning"
                     key={idx}>
                     {message} </Alert>
@@ -119,7 +119,7 @@ const ProfileEditForm = () => {
                             )
                         }
                             {
-                            errors ?. image ?. map((message, idx) => (
+                            errors?.image?.map((message, idx) => (
                                 <Alert variant="warning"
                                     key={idx}>
                                     {message} </Alert>

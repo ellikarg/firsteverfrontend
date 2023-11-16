@@ -13,40 +13,63 @@ import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
+import { useRedirect } from "../../hooks/useRedirect";
 
 
 function PostEditForm() {
+    useRedirect('loggedOut');
 
     const [errors, setErrors] = useState({});
-
     const [postData, setPostData] = useState({
         title: "",
         description: "",
         content: "",
         image: "",
+        category: "",
     })
-
-    const { title, description, content, image } = postData;
-
+    const { title, description, content, image, category, } = postData;
     const imageInput = useRef(null);
-
     const history = useHistory();
-
     const { id } = useParams();
+    const [cats, setCats] = useState([]);
 
     useEffect(() => {
         const handleMount = async () => {
             try {
                 const { data } = await axiosReq.get(`/posts/${id}/`);
-                const {title, description, content, image, is_owner} = data;
+                const {
+                    title,
+                    description,
+                    content,
+                    image,
+                    category,
+                    is_owner,
+                } = data;
 
                 is_owner ? setPostData(
-                    {title, description, content, image}) : history.push(`/`);
+                    {
+                        title,
+                        description,
+                        content,
+                        image,
+                        category,
+                    }) : history.push(`/`);
             } catch(err) {
                 console.log(err);
             }
         }
         handleMount();
+
+        const getCats = async () => {
+            try {
+                const res = await axiosReq.get("/categories");
+                setCats(res.data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        getCats();
+
     }, [history, id]);
 
     const handleChange = (event) => {
@@ -73,6 +96,7 @@ function PostEditForm() {
         formData.append('title', title);
         formData.append('description', description);
         formData.append('content', content);
+        formData.append('category', category);
 
         if (imageInput?.current?.files[0]) {
             formData.append('image', imageInput.current.files[0]);
@@ -135,6 +159,32 @@ function PostEditForm() {
                 {errors?.content?.map((message, idx) => (
                     <Alert variant="warning" key={idx}>{message}</Alert>
                 ))}
+
+                <Form.Group controlId="exampleForm.SelectCustom">
+                    <Form.Label className="d-none">Category</Form.Label>
+                    <Form.Control
+                        as="select"
+                        custom name="category"
+                        value={category}
+                        onChange={handleChange}>
+                        <option value="" disabled>Choose a Category</option>
+                        {cats.length === 0 ? (
+                            <option>Loading Categories...</option>
+                        ) : (cats.results.map((c) => (
+                            <option
+                                key={c.id}
+                                value={c.id}>
+                                    {c.name}
+                            </option>
+                        )))}
+                    </Form.Control>
+            </Form.Group>
+
+            {errors?.category?.map((message, idx) => (
+                <Alert variant="warning"
+                    key={idx}>
+                    {message}</Alert>
+            ))}
 
             <Button onClick={() => history.goBack()}>cancel</Button>
             <Button type="submit">save</Button>

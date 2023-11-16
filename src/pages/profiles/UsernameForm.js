@@ -20,7 +20,7 @@ const UsernameForm = () => {
     const setCurrentUser = useSetCurrentUser();
 
     useEffect(() => {
-        if (currentUser ?. profile_id ?. toString() === id) {
+        if (currentUser?.profile_id?.toString() === id) {
             setUsername(currentUser.username);
         } else {
             history.push("/");
@@ -38,7 +38,7 @@ const UsernameForm = () => {
             history.goBack();
         } catch (err) {
             console.log(err);
-            setErrors(err.response ?. data);
+            setErrors(err.response?.data);
         }
     };
 
@@ -60,7 +60,7 @@ const UsernameForm = () => {
                                 }/>
                         </Form.Group>
                         {
-                        errors ?. username ?. map((message, idx) => (
+                        errors?.username?.map((message, idx) => (
                             <Alert key={idx}
                                 variant="warning">
                                 {message} </Alert>

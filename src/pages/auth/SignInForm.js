@@ -33,7 +33,7 @@ function SignInForm() {
             setTokenTimestamp(data);
             history.goBack();
         } catch (err) {
-            setErrors(err.response ?. data);
+            setErrors(err.response?.data);
         }
     };
 
@@ -53,7 +53,7 @@ function SignInForm() {
                                 onChange={handleChange}/>
                         </Form.Group>
 
-                        {errors.username ?. map((message, idx) => (
+                        {errors.username?.map((message, idx) => (
                             <Alert variant="warning"
                                 key={idx}>
                                 {message}</Alert>
@@ -69,13 +69,13 @@ function SignInForm() {
                                 onChange={handleChange}/>
                         </Form.Group>
 
-                        {errors.password ?. map((message, idx) => (
+                        {errors.password?.map((message, idx) => (
                             <Alert variant="warning"
                                 key={idx}>
                                 {message}</Alert>
                         ))}
 
-                        {errors.non_field_errors ?. map((message, idx) => (
+                        {errors.non_field_errors?.map((message, idx) => (
                             <Alert key={idx}
                                 variant="warning"
                                 className="mt-3">
