@@ -1,4 +1,9 @@
-{
+{   "settings": {
+        "react": {
+        "version": "detect"
+        // or specify the exact React version, like "16.0" or "17.0"
+        }
+  },
     "env": {
         "browser": true,
         "es2021": true,

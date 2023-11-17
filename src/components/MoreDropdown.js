@@ -5,8 +5,7 @@ import { useHistory } from "react-router";
 
 
 // Component for the dropdown symbol used for Posts and Profile
-// eslint-disable-next-line react/display-name
-const ThreeDots = React.forwardRef(({ onClick }, ref) => (
+export const ThreeDots = React.forwardRef(({ onClick }, ref) => (
     <i
         className='fas fa-ellipsis-v'
         ref={ref}
@@ -15,7 +14,8 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
             onClick(e);
         }}
     />
-  ));
+));
+ThreeDots.displayName = 'ThreeDots';
   
 export const MoreDropdown = ({handleEdit, handleDelete}) => {
     return (
