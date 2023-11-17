@@ -24,7 +24,19 @@ For the JS Validation, eslint was installed and validation commands were run fro
 
 #### WAVE web accessability testing
 
+Wave was used to test the accessibility of the website and there were no errors found. A screenshot of the result can be found below.
+
+<details><summary>Wave Validation Results</summary>
+<img src="readme_assets/Wave_result.PNG">
+</details>
+
 #### Lighthouse testing
+
+Lighthouse testing was performed as well, where Accessibility, Best Practices and SEO results were fine (tested in an inkognito tab), although the performance was not the best. This is mainly due to the images which were updoaded by the users of Stories of the World. In the future and in a real-world scenario this should be tackled either before the first users start uploading images.
+
+<details><summary>Lighthouse Validation Results</summary>
+<img src="readme_assets/Lighthouse_result.PNG">
+</details>
 
 ### Resolved bugs
 
