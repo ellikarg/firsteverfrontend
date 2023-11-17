@@ -9,15 +9,17 @@ Testing file for the Stories of the World React frontend project. [Go back to th
 #### W3C CSS validator
 
 The deployed website was passed through the W3C validator without errors. There were, however, lots of warnings regarding Bootstrap. This is a common problem and will be ignored in this case.
-<details><summary>W3C Css Validation</summary>
+<details><summary>W3C Css Validation Results</summary>
 <img src="readme_assets/testing_css.PNG">
 </details>
 
 #### ESLint JavaScript validator
 
 For the JS Validation, eslint was installed and validation commands were run from the console. [This tutorial](https://gist.github.com/ianmeigh/8e603b91a38d7829d959402bfcf29d3d) was used for installation and running the tests. Screenshots of the results can be found below:
-<details><summary>ESLint JavaScript Validation</summary>
-<img src="readme_assets/testing_css.PNG">
+<details><summary>ESLint JavaScript Validation Results</summary>
+<img src="readme_assets/Eslint_results_1.PNG">
+  And after fixing some errors on the Profiles page:
+<img src="readme_assets/Eslint_results_2.PNG">
 </details>
 
 #### WAVE web accessability testing
