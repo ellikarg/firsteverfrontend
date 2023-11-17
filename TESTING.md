@@ -1,9 +1,13 @@
 ## Testing
 
 Testing file for the Stories of the World React frontend project. [Go back to the README](README.md).
-
+<br><br>
 ### Manual testing
-
+The user stories were tested and documented in [this table](https://docs.google.com/spreadsheets/d/1KGJBtAU9YLvovUPmkztGrMWBp9gAoT7rpv1nqXL2atY/edit?usp=sharing):<br>
+<img src="readme_assets/user_story_testing_1.PNG">
+<img src="readme_assets/user_story_testing_2.PNG">
+<img src="readme_assets/user_story_testing_3.PNG">
+<br><br>
 ### Validator testing
 
 #### W3C CSS validator
