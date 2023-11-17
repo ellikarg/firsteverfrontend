@@ -4,12 +4,14 @@ import {useCurrentUser} from '../../contexts/CurrentUserContext';
 import {Link} from 'react-router-dom/cjs/react-router-dom.min';
 import Avatar from '../../components/Avatar'
 import {useSetProfileData} from '../../contexts/ProfileDataContext';
+import Button from 'react-bootstrap/Button';
 
 
 // Profile card with follow/unfollow button
 const Profile = (props) => {
     const {
         profile,
+        mobile,
         imageSize = 55
     } = props;
     const {id, following_id, image, owner} = profile;

@@ -20,7 +20,6 @@ export const ProfileDataProvider = ({children}) => {
 
     const handleFollow = async (clickedProfile) => {
         try {
-            console.log(clickedProfile)
             const {data} = await axiosRes.post('/followers/', {
               followed: clickedProfile.id,
             });
@@ -34,7 +33,7 @@ export const ProfileDataProvider = ({children}) => {
                 },
             }));
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
     };
 
@@ -50,7 +49,7 @@ export const ProfileDataProvider = ({children}) => {
                 },
             }));
         } catch(err){
-            console.log(err);
+            // console.log(err);
         }
     };
 

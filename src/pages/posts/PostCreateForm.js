@@ -45,7 +45,7 @@ function PostCreateForm() {
                 const res = await axiosReq.get("/categories");
                 setCats(res.data);
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         };
         getCats();
@@ -84,7 +84,7 @@ function PostCreateForm() {
                 data.id
             }`);
         } catch (err) {
-            console.log(err);
+            // console.log(err);
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }

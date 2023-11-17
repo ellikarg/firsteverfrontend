@@ -40,7 +40,7 @@ function PostsPage({
                 setFilteredPosts(data);
                 setHasLoaded(true);
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         };
         setHasLoaded(false);
@@ -50,7 +50,7 @@ function PostsPage({
                 const res = await axiosReq.get("/categories");
                 setCats(res.data);
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         };
         getCats();
