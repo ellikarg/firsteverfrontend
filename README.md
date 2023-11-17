@@ -240,12 +240,15 @@ The deployed website was passed through the W3C validator without errors. There 
 | 2 | Image Upload had an automatically created input form underneath the upload area |  add to App.module.css: input[type="file"] {display: none;} |
 | 3 | Category field displayd the id instead of the name in the story-card (Post.js) | Making a category_name field in the serializer of the Post model in the backend and then importing directly category_name |
 | 4 | Category was saved to the backend as a string when creating a post | using value={c.id} as a property of the option-tag inside the dropdown for the categories (PostCreateForm.js & PostEditForm.js) |
+| 5 | eslint threw an error for the ThreeDot variable in the MoreDropdown Component, saying that is missing a display name  | Setting the display name manually (ThreeDots.displayName = 'ThreeDots';) fixed the issue ([source])(https://bobbyhadz.com/blog/react-component-is-missing-display-name) |
+| 6 | after installing eslint I got an error saying the babel-preset-react-app is not maintianed anymore. It is thus unlikely that this bug will
+ever be fixed | Installing `@babel/plugin-proposal-private-property-in-object` fixed the issue ([source](https://stackoverflow.com/questions/76435306/babel-preset-react-app-is-importing-the-babel-plugin-proposal-private-propert) |
 
 ### Unresolved bugs
 
 | No | Bug | 
 | :--- | :--- |
-| 1 | The process of registration seems to be faulty on some ios devices. No such problems were encoutered with android or windows. |
+| 1 | The process of registration seems to be faulty on some iOS devices. No such problems were encoutered with android or windows. When a user tries to login, she is taken back to the registration site. Since I am not using iOS, it is difficult to fix and test the issue extensively. In a real-world case I would try to get a device runnint with iOS and try fixing the problem with it |
 
 ## Deployment
 To deploy to Heroku, follow these steps:
