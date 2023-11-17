@@ -42,7 +42,7 @@ const NavBar = () => {
 
     // definition of all icons that are displayed when user is logged in
     const loggedInIcons =
-        <div>
+        <>
             <NavLink to="/feed"
                 className={styles.NavLink}
                 activeClassName={styles.Active} >
@@ -63,7 +63,7 @@ const NavBar = () => {
                 activeClassName={styles.Active} >
                 <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
             </NavLink>
-        </div>
+        </>
 
     // definition of all icons that are displayed when user is logged out
     const loggedOutIcons = 
@@ -81,7 +81,7 @@ const NavBar = () => {
         </>
 
     return (
-        <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top">
+        <Navbar expanded={expanded} className={styles.NavBar} expand="lg" fixed="top">
             <Container>
                 <NavLink exact to="/">
                     <Navbar.Brand>
