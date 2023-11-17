@@ -130,6 +130,7 @@ I chose to use Quicksand, which belongs to the sans-serif font family and fits v
 
 ## Features
 
+
 **Navigation**
 
 `Navigation between pages: As a user I can view a navbar from every page so that I can navigate easily between pages`<br>
@@ -149,12 +150,14 @@ Not authenticated User Navbar:
 <img src="readme_assets/features_navbar_2.PNG">
 
 
+<br><br><br>
 **Footer**
 
 A footer is displayed to the user on all pages:
 <img src="readme_assets/features_footer.PNG">
 
 
+<br><br><br>
 **Authentication**
 
 `Sign up: As a user I can create a new account so that I can access all the features for signed up users`
@@ -175,6 +178,7 @@ Avatar for logged in Users in Navbar:
 <img src="readme_assets/features_authentication_3.PNG">
 
 
+<br><br><br>
 **Content Creation and Viewing**
 
 
@@ -252,6 +256,8 @@ The profile page of that storyteller and all the posts that belong to her are di
 
 If a category on the homepage is clicked on, only stories that match the clicked category are displayed:
 <img src="readme_assets/features_categories.PNG">
+
+
 
 
 
