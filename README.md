@@ -32,14 +32,6 @@ Enough of talking, let's collect stories!
   * [React features used to enhance user experience](#react-features-used-to-enhance-user-experience)
     + [Custom hooks](#custom-hooks)
   * [Testing](#testing)
-    + [Manual testing](#manual-testing)
-    + [Validator testing](#validator-testing)
-    + [W3C CSS validator](#w3c-css-validator)
-    + [ESLint JavaScript validator](#eslint-javascript-validator)
-    + [WAVE web accessability testing](#wave-web-accessability-testing)
-    + [Lighthouse testing](#lighthouse-testing)
-    + [Resolved bugs](#resolved-bugs)
-    + [Unresolved bugs](#unresolved-bugs)
   * [Deployment](#deployment)
   * [Credits](#credits)
     + [Code](#code)
@@ -137,6 +129,129 @@ I chose to use Quicksand, which belongs to the sans-serif font family and fits v
 </details>
 
 ## Features
+
+**Navigation**
+
+`Navigation between pages: As a user I can view a navbar from every page so that I can navigate easily between pages`<br>
+
+`Avatar: As a user I can view other users' avatars so that I can easily identify the users of the application`<br>
+
+`Navigation based on Authentication: Conditional rendering - As a logged out user I can see sign in and sign up options so that I can sign in/sign up, whereas as a logged in user I can post stories, look at my feed and the stories I liked, as well as logout`<br>
+
+A fully responsive navigation menu has been implemented across the website.
+
+This will allow the users to navigate to different pages on the website with ease from any device. Nav items are different depending on the users logged in state to prevent them accessing areas of the application intended for signed in users.
+
+Authenticated User Navbar:
+<img src="readme_assets/features_navbar_1.PNG">
+
+Not authenticated User Navbar:
+<img src="readme_assets/features_navbar_2.PNG">
+
+
+**Footer**
+
+A footer is displayed to the user on all pages:
+<img src="readme_assets/features_footer.PNG">
+
+
+**Authentication**
+
+`Sign up: As a user I can create a new account so that I can access all the features for signed up users`
+
+Form to Register:
+<img src="readme_assets/features_authentication_1.PNG">
+
+
+`Sign in: As a user I can sign in to the app so that I can access functionality for logged in users`
+
+Form to Signin:
+<img src="readme_assets/features_authentication_2.PNG">
+
+
+`Logged in Status: As a user I can tell if I am logged in or not so that I can log in if I need to`
+
+Avatar for logged in Users in Navbar:
+<img src="readme_assets/features_authentication_3.PNG">
+
+
+**Content Creation and Viewing**
+
+
+`View most recent stories: As a user I can view all the most recent stories, ordered by most recently created first so that I am up to date with the newest content`
+
+Entering the homepage, the user (authenticated or not is able to view all stories (ordered by the reverse creation date), read their content by clicking on them, and see the comments written underneath them.
+
+
+`Create stories: As a logged in user I can create stories (posts) so that I can share my stories with the other users`
+
+Form to create a Post:
+<img src="readme_assets/features_create_post.PNG">
+
+
+`Like stories: As a logged in user I can like a story so that I can show my support for the stories that interest me`
+
+The Stories can be liked with the little heart symbol on the picture of each story:
+<img src="readme_assets/features_like_post.PNG">
+
+
+`Edit and delete story: As a story owner I can edit my story title, description, content and the category so that I can make corrections or update my story after it was created. I can also delete my story, if I want that`
+
+The Stories can be deleted by clicking on the three dots symbol of one's own post
+<img src="readme_assets/features_edit_delete_post.PNG">
+
+
+`As a user I can see how long ago a comment was made so that I know how old a comment is`
+`As a logged in user I can add comments, edit and delete them`
+
+Underneath each story (PostPage), comments can be viewed with their creation date, added and also edited and deleted if they belong to the authenticated user:
+<img src="readme_assets/features_comments_1.PNG">
+<img src="readme_assets/features_comments_2.PNG">
+
+
+`Follow/Unfollow a user: As a logged in user I can follow and unfollow other users so that I can see and remove stories by specific users in my stories feed`
+
+There is a follow/Unfollow button on each profile of another storyteller:
+<img src="readme_assets/features_follow.PNG">
+
+
+`Edit profile: As a logged in user I can edit my profile so that I can change my profile picture and Bio`
+
+`Update username and password: As a logged in user I can update my username and password so that I can change my display name and keep my profile secure`
+
+There is a Three Dots symbol on the Profile page of the authenticated user with which she can navigate to validated forms that will edit the picture and bio, edit her username or change the password:
+<img src="readme_assets/features_profile.PNG">
+
+
+`search for keywords: As a user, I can search for stories with keywords, so that I can find the stories I am most interested in`
+
+As a user (authenticated or not) I can search through the storiew by using the searchbar:
+<img src="readme_assets/features_search.PNG">
+
+`View liked posts: As a logged in user I can view the stories I liked so that I can find the stories I enjoyed the most`
+
+By entering the Liked-page via the navbar the authenticated user can view all stories she liked.
+
+
+`View stories of followed users: As a logged in user I can view content filtered by users I follow so that I can keep up to date with what they are posting about`
+
+By entering the Feed-page via the navbar the authenticated user can view all stories from other storytellers she is following.
+
+
+`Infinite scroll: As a user I can keep scrolling through the content on the site, that is loaded for me automatically so that I don't have to click on "next page"`
+
+Stories are only fetched after the user has reached the end of the page. While loading, the spinner asset is displayed
+
+
+`View all stories by a specific user: As a user I can view all the stories by a specific user so that I can catch up on their latest posts, or decide if I want to follow them`
+
+The profile page of that storyteller and all the posts that belong to her are displayed.
+
+
+`Filter stories by category: As a user I can filter all the stories assigned to a specific category so that I can read through stories of a similar type`
+
+If a category on the homepage is clicked on, only stories that match the clicked category are displayed:
+<img src="readme_assets/features_categories.PNG">
 
 
 
