@@ -308,6 +308,7 @@ The NotFound Component is used everywhere where the requested data does not exis
 - [React Bootstrap](https://www.npmjs.com/package/react-bootstrap) - this library was selected for the simplicity of inserting responsive components, such as cards or authentication pages, and its easy integration with React.
 - [React Infinite Scroll Component](https://www.npmjs.com/package/react-infinite-scroll-component) - used for loading only a certain amount of stories that the user can scroll through before loading again when she reaches the end of the page. This is good UX since the user does not have to click "next page" in order to view older stories (posts).
 - [React Masonry CSS](https://www.npmjs.com/package/react-masonry-css) - used to achieve the layout that uses the space maximally without leaving blank spaces between the story-cards, when one description is longer than another. This results in a masonry layout that I find very fitting for the purpose of the website (to focus on the stories, their description and heading and use the image just as an eye-catcher).
+- Eslint react - used for checking the js code for errors
 
 <a name="other-technologies"></a>
 ### Other Technologies
@@ -323,7 +324,7 @@ The NotFound Component is used everywhere where the requested data does not exis
 * [Am I responsive](https://ui.dev/amiresponsive) to generate the mockup
 
 * [Google Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) for inspection during development to check reponsiveness and contrast and JS errors in the console
-* [W3C Markup Validation Service](https://validator.w3.org/)
+* [Wave Accessibility Validation](https://wave.webaim.org/extension/)
 * [W3C CSS Validation Service(Jigsaw)](https://jigsaw.w3.org/css-validator/)
 * [PEP8](https://www.python.org/dev/peps/pep-0008/) to validate the Python code
 * Lighthouse in dev tools for testing
